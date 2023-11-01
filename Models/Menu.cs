@@ -16,6 +16,5 @@ namespace DoAn_WebAcc.Models
         public int ParentID { get; set; }
         public string? Link { get; set; }
         public int MenuOrder { get; set; }
-        public int Position { get; set; }
     }
 }

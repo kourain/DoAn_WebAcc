@@ -17,50 +17,40 @@
                 <li class="nav-item">
                     <a href="" class="nav-link menu-header shine-active" style="font-size: x-large;text-shadow: 0 0 10px #008885, 0 0 20px #69e0ff, 0 0 40px #69e0ff;">HoyoGames Shop</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link menu-header shine-active"><i class="ficon fa-lg fa fa-home"></i></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle menu-header ">
-                        Nạp tiền
-                    </a>
-                    <ul class="dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
-                        <li>
-                            <a href="login.html" class="dropdown-item ">
-                                <i class="fas fa-money-check-alt mr-1"></i> Nạp bằng thẻ cào
+                @foreach( var menu in Model.Where(m=>m.Levels == 1).OrderBy(n=>n.MenuOrder))
+                {
+                    var Pid = menu.MenuId;
+                    var Smenu = Model.Where(p => p.ParentID == Pid).OrderBy(p => p.MenuId).ToList();
+                    
+                    @if (Smenu.Count == 0)
+                    {
+                        <li class="nav-item">
+                            <a href="#" class="nav-link menu-header">
+                                @menu.MenuName
                             </a>
                         </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <a href="login.html" class="dropdown-item">
-                                <i class="fas fa-university mr-1"></i> Nạp bằng bank, ví
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle menu-header">
+                                @menu.MenuName
                             </a>
+                            <ul class="dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                            @foreach (var smn in Smenu)
+                            {
+                                <li>
+                                    <a href="" class="dropdown-item ">
+                                        <i class="fas fa-history mr-1"></i>
+                                        @smn.MenuName
+                                    </a>
+                                </li>
+                            }
+                            </ul>
                         </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#recharge_service" class="nav-link menu-header">
-                        Nạp Game
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle menu-header">
-                        Lịch Sử Mua
-                    </a>
-                    <ul class="dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
-                        <li>
-                            <a href="genshin/acc/my-acc.html" class="dropdown-item ">
-                                <i class="fas fa-history mr-1"></i> Genshin
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li><a href="login.html" class="dropdown-item "><i class="fas fa-history mr-1"></i> Key / Reroll</a></li>
-                        <li class="dropdown-divider"></li>
-                        <li><a href="star-rail/my-acc.html" class="dropdown-item "><i class="fas fa-history mr-1"></i> Star Rail</a></li>
-                        <li class="dropdown-divider"></li>
-                        <li><a href="login.html" class="dropdown-item"><i class="fas fa-history mr-1"></i> Acc chung</a></li>
-                    </ul>
-                </li>
+
+                    }
+                }
                 <style>
                     .dropdown-submenu > a::after {
                         margin-right: -0.5rem;
@@ -74,14 +64,14 @@
         <!-- Right navbar links -->
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto" style="position: absolute;right: 0px;">
             <li class="nav-item">
-                <a href="auth/register.html">
+                <a href="#">
                     <button class="btn-pretty">
                         Đăng ký
                     </button>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="login.html">
+                <a href="#">
                     <button class="btn-pretty">
                         Đăng nhập
                     </button>
