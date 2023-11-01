@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HoyoGames Shop</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <base>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="4AHcwGUgBNZoH0qyqtmP9wnWElcXZMXIdaeEoVHk">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/style/plugins/fontawesome-free/css/all.min.css">
+    <link rel="icon" type="image/png" href="../upanh.cf/30c1d3vknx.jpg">
+    <link rel="canonical" href="index.html" />
+    <link rel="stylesheet" href="~/HoyoGames.css" />
+
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/style/dist/css/adminlte.min.css">
+    <style>
+        .nav-example {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            margin-top: -15px;
+            margin-bottom: 15px
+        }
+
+        .nav-slider {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+        }
+
+        #myslider {
+            width: 100%;
+            height: 100%;
+        }
+
+        a.slide-button {
+            position: absolute;
+            padding: 300px 0px 0px 15px;
+            top: 0px;
+            left: 0px;
+            z-index: 12;
+            width: 30px;
+            height: 330px;
+            color: #FFF;
+            background-color: rgba(0,0,0,0.2);
+            text-decoration: none;
+            font-weight: 600;
+            box-sizing: border-box;
+        }
+
+        .icon-slide-button {
+            top: 47%;
+            position: absolute;
+            color: rgba(255,255,255,0.7)
+        }
+
+        #next-button {
+            left: auto;
+            right: 0px;
+        }
+
+        .img_slide {
+            width: 100%;
+            height: 327px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+
+        .bg_main {
+            background-color: rgba(255,255,255,.66);
+            border-radius: 0.25rem;
+        }
+
+        #top-tab {
+            padding: 0.5rem 1rem;
+            color: #fdb603;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        [class*=sidebar-dark-] .nav-sidebar > .nav-item > .nav-treeview {
+            background-color: #2a2f33;
+        }
+
+        .concave {
+            box-shadow: inset 4px 4px 8px #e1e0e0, inset -5px -5px 8px #fdfcfc;
+            border: 1px solid #f3f5f7;
+        }
+    </style>
+
+</head>
+<body class="hold-transition sidebar-collapse layout-top-nav">
+    <div class="wrapper">
+        @await Component.InvokeAsync("MenuView")
+        <main>
+            <section class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                    <footer class="mt-5 p-3" style="background: rgb(27 25 60 / 58%);color: #fff; margin-right: -6px; margin-left: -8px">
+                        <div class="container-lg">
+                            <h2 class="guide__title mt-3">
+                                <span style="font-size: xx-large;font-family: cursive;" class="link-active">HoyoGames Shop</span>
+                            </h2>
+                            <div class="row">
+                                <section class="col-12 col-lg-4">
+                                    <div class="h h4 link-active">
+                                        Về
+
+                                        <a href='index.html' style="color: inherit;text-shadow:unset">HoyoGames Shop</a>
+                                    </div>
+                                    <p><span style="caret-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%;"><font color="#ffffff">Chúng tôi làm việc chuyên nghiệp,</font></span></p><p><span style="caret-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%;"><font color="#ffffff">Phục vụ Tận Tình và Chu Đáo nhất,</font></span></p><p><span style="caret-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%;"><font color="#ffffff">Chúng tôi luôn luôn Bảo vệ lợi ích</font></span></p><p><span style="caret-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%;"><font color="#ffffff">của khách hàng lên hàng đầu.</font><font color="#ff0000">🥰</font></span></p>
+                                    <p class="mt-3 small">
+                                        © HoyoGames Shop
+                                    </p>
+                                    <div class="h h5">
+                                        <i class="fa fa-language"></i> Ngôn ngữ
+                                    </div>
+                                    <a class="btn btn-sm  btn-info " href="index.html">English</a>
+                                    <a class="btn btn-sm  btn-info " href="index.html">
+                                        Mặc định
+                                    </a>
+                                </section>
+
+                                <section class="col-12 col-lg-4">
+                                    <div class="h h4 link-active">
+                                        Chúng tôi
+                                    </div>
+                                    <p class="m-0"><p class="p3" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-stretch: normal; font-size: 17px; line-height: normal; caret-color: rgb(0, 0, 0); -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto;"><font face="UICTFontTextStyleBody" color="#0000ff">Số điện thoại hỗ trợ</font><font face="UICTFontTextStyleBody"><font color="#0000ff">:</font><font color="#ffff00"> </font><b><font color="#ff0000">0923 981 981</font></b></font></p><p class="p3" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-stretch: normal; font-size: 17px; line-height: normal; caret-color: rgb(0, 0, 0); -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto;"><span class="s2" style="font-family: UICTFontTextStyleBody;"><font color="#ffff00">Group FB thảo luận và hỗ trợ:</font><font color="#000000">&nbsp;</font><a href="https://www.facebook.com/groups/shopgenshin247/?ref=share_group_link"><span class="s3" style="text-decoration: underline;"><font color="#0000ff">Ấn Vào</font></span></a></span></p><p class="p3" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-stretch: normal; font-size: 17px; line-height: normal; caret-color: rgb(0, 0, 0); -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto;"><span class="s2" style="font-family: UICTFontTextStyleBody;"><font color="#ffffff">Group zalo ShopGenshin247:</font></span><span class="s2" style="color: rgb(0, 0, 0); font-family: UICTFontTextStyleBody;">&nbsp;</span><a href="https://zalo.me/g/noazjt461" target="_blank"><font color="#0000ff"><u>Ấn Vào</u></font></a><span class="s2" style="font-family: UICTFontTextStyleBody;"><br><font color="#00ff00">Link page hỗ trợ các vấn đề :</font><font color="#000000">&nbsp;</font></span><a href="https://www.facebook.com/profile.php?id=100087263053000" target="_blank"><font color="#0000ff"><u>Ấn Vào</u></font></a></p></p>
+
+                                </section>
+                                <section class="col-12 col-lg-4">
+                                    <i class="fab fa-facebook-square fa-2x mr-2"></i>
+                                    <i class="fab fa-youtube fa-2x"></i>
+                                    <p class="mt-3 fw-bold"><i class="fa fa-phone mr-2"></i>Hotline: 0923 981 981</p>
+                                    <p class="fw-bold"><i class="fa fa-clock mr-2"></i>Work time: 24/7</p>
+                                    <p class="fw-bold"><i class="fa fa-map-marked-alt mr-2"></i>Address: </p>
+                                    <p class="m-0"></p>
+                                </section>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </section>
+        </main>
+    </div>
+    <ul class="nav-fixed">
+        <li class="nav-fixed-zalo"> <a target="_blank" href="https://zalo.me/0923 981 981"><img src="~/style/images/icon/zalo.png" alt=""></a></li>
+        <li class="nav-fixed-face"> <a target="_blank" href="https://www.facebook.com/profile.php?id=100087263053000"><i style="color: white" class="fab fa-facebook-f fa-lg"></i></a></li>
+        <li class="nav-fixed-phone"> <a href="tel:0923 981 981"><i style="color: white" class="fa fa-phone fa-lg"></i></a></li>
+    </ul>
+
+    <!-- jQuery -->
+    <script src="~/style/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/style/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- AdminLTE App -->
+    <script src="~/style/dist/js/adminlte.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        // sweet alert
+    </script>
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v8.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = '../connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Your Chat Plugin code -->
+    <div class="fb-customerchat"
+         attribution=setup_tool
+         page_id="102120852711442"
+         theme_color="#3a87fe"
+         logged_in_greeting="Xin Chào! Bạn cần trợ giúp?"
+         logged_out_greeting="Xin Chào! Bạn cần trợ giúp?">
+    </div>
+</body>
+</html>
