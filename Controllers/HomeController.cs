@@ -7,10 +7,11 @@ namespace DoAn_WebAcc.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly DataContext _datacontext;
+        public HomeController(ILogger<HomeController> logger, DataContext datacontext)
         {
             _logger = logger;
+            _datacontext = datacontext;
         }
 
         public IActionResult Index()

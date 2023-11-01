@@ -1,0 +1,57 @@
+﻿@model IList<AccHI>
+@{
+    int count = 0;
+}
+<center>
+    <img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031921140936446.png" class="city__icon">
+</center>
+    <h2 class="guide__title">
+        HONKAI IMPACT 3
+    </h2>
+    <div class="container-lg">
+        <div class="row">
+            @foreach (var acc in Model.OrderBy(m => m.UID))
+            {
+                if (count == 4) break;
+                string img = "style/images/genshin/category/genshin-vip.webp";
+                if (acc.Img != null)
+                    img = acc.Img;
+                count += 1;
+                <article class="col-lg-3 col-md-6">
+                    <div class="genshin-product">
+                        <div class="wrapper product-wrapper">
+                            <a href="#"><img class="img-banner" style="background-image: url(@img)"></a>
+                            <h2 class="note__title">
+                                UID: @acc.UID
+                                Server: @acc.Server
+                            </h2>
+                            <div class="row g-0 info-line">
+                                <section class="row g-0 text-center">
+                                    <label class="text-muted">
+                                        Số nhân vật
+                                    </label>
+                                    <span class="more-detail fs-4">@acc.CharCount</span>
+                                </section>
+                            </div>
+                            <div class="row g-0 info-line">
+                                <section class="row g-0 text-center">
+                                    <label class="text-muted">
+                                        Số vũ khí
+                                    </label>
+                                    <span class="more-detail fs-4">@acc.Weapon</span>
+                                </section>
+                            </div>
+                            <div class="genshin-product-footer">
+                                <div class="hr-product mt-1 mb-1"></div>
+                                <a href="#">
+                                    <button class="btn-pretty mb-2">
+                                        Vào Xem Acc
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>

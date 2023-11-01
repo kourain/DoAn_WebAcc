@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DoAn_WebAcc.Areas.Admin.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DoAn_WebAcc.Models
 {
@@ -6,7 +7,12 @@ namespace DoAn_WebAcc.Models
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
+        
         public DbSet<Menu> Menus { get; set; }
+        public DbSet<AccHI> AccHIs { get; set; }
+        public DbSet<AccGI> AccGIs { get; set; }
+        public DbSet<AccHSR> AccHSRs { get; set; }
+        public DbSet<AdminMenu> AdminMenus { get; set; }
     }
 
 }
