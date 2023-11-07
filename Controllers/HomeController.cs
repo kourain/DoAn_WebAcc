@@ -1,5 +1,6 @@
 ﻿using DoAn_WebAcc.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace DoAn_WebAcc.Controllers
@@ -29,5 +30,16 @@ namespace DoAn_WebAcc.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public int? getmaxuserid()
+        {
+
+            int? uid = (from p in _datacontext.AccHIs
+                           where (p.Sold == false)
+                           orderby p.UID descending
+                           select p.UID).Take(1).ToList()[0];
+            if(uid == null) uid = 1;
+            return uid;
+        }
+
     }
 }

@@ -18,7 +18,9 @@ namespace DoAn_WebAcc.Components
                            where (p.Sold == false)
                            orderby p.UID descending
                            select p).Take(4).ToList();
+
             return await Task.FromResult((IViewComponentResult)View("Default", listacc));
         }
+
     }
 }
