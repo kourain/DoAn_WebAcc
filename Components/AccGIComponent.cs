@@ -15,7 +15,7 @@ namespace DoAn_WebAcc.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var listacc = (from p in _context.AccGIs
-                              where (p.Sold == false)
+                              where (p.Sold != null)
                               orderby p.UID ascending
                               select p).Take(4).ToList();
             return await Task.FromResult((IViewComponentResult)View("Default", listacc));

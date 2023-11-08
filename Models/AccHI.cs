@@ -15,7 +15,7 @@ namespace DoAn_WebAcc.Models
         public string? Type { get; set; }
         public string? Username { get; set; }
         public string? Password { get; set; }
-        public Boolean Sold { get; set; }
+        public int? Sold { get; set; }
         public string? Img { get; set; }
     }
 }

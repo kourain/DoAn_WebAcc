@@ -1,87 +1,5 @@
-USE [master]
-GO
-/****** Object:  Database [DB_WebACC]    Script Date: 07/11/2023 10:15:50 CH ******/
-CREATE DATABASE [DB_WebACC]
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [DB_WebACC].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [DB_WebACC] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [DB_WebACC] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [DB_WebACC] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [DB_WebACC] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [DB_WebACC] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET RECOVERY FULL 
-GO
-ALTER DATABASE [DB_WebACC] SET  MULTI_USER 
-GO
-ALTER DATABASE [DB_WebACC] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [DB_WebACC] SET DB_CHAINING OFF 
-GO
-ALTER DATABASE [DB_WebACC] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
-GO
-ALTER DATABASE [DB_WebACC] SET TARGET_RECOVERY_TIME = 60 SECONDS 
-GO
-ALTER DATABASE [DB_WebACC] SET DELAYED_DURABILITY = DISABLED 
-GO
-ALTER DATABASE [DB_WebACC] SET ACCELERATED_DATABASE_RECOVERY = OFF  
-GO
-EXEC sys.sp_db_vardecimal_storage_format N'DB_WebACC', N'ON'
-GO
-ALTER DATABASE [DB_WebACC] SET QUERY_STORE = ON
-GO
-ALTER DATABASE [DB_WebACC] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
-GO
-USE [DB_WebACC]
-GO
-/****** Object:  Table [dbo].[AdminMenu]    Script Date: 07/11/2023 10:15:50 CH ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AdminMenu](
+﻿
+CREATE TABLE AdminMenu(
 	[AdminMenuID] [bigint] NOT NULL,
 	[ItemName] [nvarchar](50) NULL,
 	[ItemLevel] [int] NULL,
@@ -96,48 +14,7 @@ CREATE TABLE [dbo].[AdminMenu](
 	[IdName] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[GI]    Script Date: 07/11/2023 10:15:50 CH ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[GI](
-	[UID] [int] NULL,
-	[LV] [int] NULL,
-	[CharCount] [int] NULL,
-	[Weapon] [int] NULL,
-	[Server] [char](10) NULL,
-	[Type] [char](10) NULL,
-	[UserName] [char](30) NULL,
-	[Password] [char](30) NULL,
-	[Sold] [bit] NULL,
-	[Img] [char](256) NULL
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[HI]    Script Date: 07/11/2023 10:15:50 CH ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[HI](
-	[UID] [int] NOT NULL,
-	[LV] [int] NULL,
-	[CharCount] [int] NULL,
-	[Weapon] [int] NULL,
-	[Server] [char](10) NULL,
-	[Type] [char](10) NULL,
-	[UserName] [char](30) NULL,
-	[Password] [char](30) NULL,
-	[Sold] [bit] NULL,
-	[Img] [char](256) NULL
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[HSR]    Script Date: 07/11/2023 10:15:50 CH ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[HSR](
+CREATE TABLE GI(
 	[UID] [int] NULL,
 	[LV] [int] NULL,
 	[CharCount] [int] NULL,
@@ -150,12 +27,33 @@ CREATE TABLE [dbo].[HSR](
 	[Img] [char](256) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Menu]    Script Date: 07/11/2023 10:15:50 CH ******/
-SET ANSI_NULLS ON
+CREATE TABLE HI(
+	[UID] [int] NOT NULL,
+	[LV] [int] NULL,
+	[CharCount] [int] NULL,
+	[Weapon] [int] NULL,
+	[Server] [char](10) NULL,
+	[Type] [char](10) NULL,
+	[UserName] [char](30) NULL,
+	[Password] [char](30) NULL,
+	[Sold] [int] NULL,
+	[Img] [char](256) NULL
+) ON [PRIMARY]
 GO
-SET QUOTED_IDENTIFIER ON
+CREATE TABLE HSR(
+	[UID] [int] NULL,
+	[LV] [int] NULL,
+	[CharCount] [int] NULL,
+	[Weapon] [int] NULL,
+	[Server] [char](10) NULL,
+	[Type] [char](10) NULL,
+	[UserName] [char](30) NULL,
+	[Password] [char](30) NULL,
+	[Sold] [int] NULL,
+	[Img] [char](256) NULL
+) ON [PRIMARY]
 GO
-CREATE TABLE [dbo].[Menu](
+CREATE TABLE Menu(
 	[MenuID] [int] NOT NULL,
 	[MenuName] [nvarchar](50) NULL,
 	[IsActive] [bit] NULL,
@@ -167,12 +65,7 @@ CREATE TABLE [dbo].[Menu](
 	[MenuOrder] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 07/11/2023 10:15:50 CH ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[User](
+CREATE TABLE [User](
 	[ID] [int] NULL,
 	[Name] [nvarchar](100) NULL,
 	[username] [char](30) NULL,
@@ -181,7 +74,27 @@ CREATE TABLE [dbo].[User](
 	[Password] [char](30) NULL
 ) ON [PRIMARY]
 GO
-USE [master]
-GO
-ALTER DATABASE [DB_WebACC] SET  READ_WRITE 
-GO
+INSERT INTO [AdminMenu] VALUES
+(1,N'Bảng điều khiển',0,0,1,0,NULL,'Admin','Home','Index',NULL,NULL),
+(2,N'Thông tin cá nhân',0,0,1,0,NULL,'Admin','Home','Index',NULL,NULL),
+(3,N'Hướng dẫn sử dụng',0,0,2,0,NULL,'Admin','Home','Index',NULL,NULL),
+(4,N'Liên Lạc',0,0,3,0,NULL,'Admin','Home','Index',NULL,NULL),
+(5,N'Đăng xuất',0,0,4,0,NULL,'Admin','Home','Index',NULL,NULL),
+(6,N'Quản lý tài khoản bán',1,0,1,1,'components-nav','Admin','Home','Index','bi bi-menu-button-wide','components-nav'),
+(7,N'Thêm tài khoản',2,6,1,1,NULL,'Admin','Home','Index',NULL,NULL),
+(8,N'Xoá tài khoản',2,6,2,1,NULL,'Admin','Home','Index',NULL,NULL),
+(9,N'Xem danh sách tài khoản',2,6,3,1,NULL,'Admin','Home','Index',NULL,NULL),
+(10,N'Quản lý menu',1,0,1,1,'forms-nav','Admin','Home','Index','bi bi-journal-text','forms-nav'),
+(11,N'Thêm mới menu',2,10,1,1,NULL,'Admin','Menu','Index',NULL,NULL),
+(12,N'Chỉnh sửa menu',2,10,2,1,NULL,'Admin','Home','Index',NULL,NULL),
+(13,N'Quản lý slide',1,0,1,1,'charts-nav','Admin','Home','Index','bi bi-bar-chart','charts-nav'),
+(14,N'Thêm mới slide',2,13,1,1,NULL,'Admin','Home','Index',NULL,NULL),
+(15,N'Chỉnh sửa slide',2,13,2,1,NULL,'Admin','Home','Index',NULL,NULL)
+INSERT INTO [dbo].[Menu] VALUES
+(1,'Honkai Impact 3',1,NULL,NULL,1,0,NULL,1),
+(2,'Genshin Impact',1,NULL,NULL,1,0,NULL,2),
+(3,'Honkai: Star Rail',1,NULL,NULL,1,0,NULL,3),
+(4,N'Lịch sử mua',1,NULL,NULL,1,0,NULL,4),
+(5,'Honkai Impact 3',1,NULL,NULL,2,4,NULL,1),
+(6,'Genshin Impact',1,NULL,NULL,2,4,NULL,2),
+(7,'Honkai: Star Rail',1,NULL,NULL,2,4,NULL,3)

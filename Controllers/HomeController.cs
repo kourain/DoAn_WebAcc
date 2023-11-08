@@ -34,7 +34,7 @@ namespace DoAn_WebAcc.Controllers
         {
 
             int? uid = (from p in _datacontext.AccHIs
-                           where (p.Sold == false)
+                           where (p.Sold != null)
                            orderby p.UID descending
                            select p.UID).Take(1).ToList()[0];
             if(uid == null) uid = 1;
