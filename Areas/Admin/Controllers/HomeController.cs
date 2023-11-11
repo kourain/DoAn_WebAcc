@@ -1,13 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
+using DoAn_WebAcc.Utilities;
 namespace DoAn_WebAcc.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin")] 
+    
     public class HomeController : Controller
     {
+
         public IActionResult Index()
         {
+            if (!Functions.IsLogin())
+                return RedirectToAction("Index", "Login");
             return View();
+        }
+        public IActionResult Logout()
+        {
+            Functions._UserID = 0;
+            Functions._UserName = string.Empty;
+            Functions._Email = string.Empty;
+            Functions._MessageEmail = string.Empty;
+            Functions._Message = string.Empty;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

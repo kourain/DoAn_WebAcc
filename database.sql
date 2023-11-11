@@ -1,6 +1,6 @@
 ﻿
 CREATE TABLE AdminMenu(
-	[AdminMenuID] [bigint] NOT NULL,
+	[AdminMenuId] [bigint] NOT NULL,
 	[ItemName] [nvarchar](50) NULL,
 	[ItemLevel] [int] NULL,
 	[ParentLevel] [int] NULL,
@@ -54,7 +54,7 @@ CREATE TABLE HSR(
 ) ON [PRIMARY]
 GO
 CREATE TABLE Menu(
-	[MenuID] [int] NOT NULL,
+	[MenuId] [int] NOT NULL,
 	[MenuName] [nvarchar](50) NULL,
 	[IsActive] [bit] NULL,
 	[ControllerName] [nvarchar](50) NULL,

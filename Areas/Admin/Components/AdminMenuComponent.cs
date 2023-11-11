@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DoAn_WebAcc.Models;
 
-namespace startup.Areas.Admin.Components
+namespace DoAn_WebAcc.Areas.Admin.Components
 {
     [ViewComponent(Name = "AdminMenu")]
     public class AdminMenuComponent : ViewComponent

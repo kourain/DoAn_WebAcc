@@ -13,6 +13,8 @@ namespace DoAn_WebAcc.Models
         public DbSet<AccGI> AccGIs { get; set; }
         public DbSet<AccHSR> AccHSRs { get; set; }
         public DbSet<AdminMenu> AdminMenus { get; set; }
+        public DbSet<AdminUser> AdminUsers { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 
 }

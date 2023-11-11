@@ -1,4 +1,6 @@
-﻿@model IList<AccHSR>
+﻿@using DoAn_WebAcc.Controllers;
+@using DoAn_WebAcc.Utilities;
+@model IList<AccGI>
 @{
     int count = 0;
 }
@@ -6,13 +8,14 @@
     <img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031921140936446.png" class="city__icon">
 </center>
     <h2 class="guide__title">
-        HONKAI STAR RAIL
+        GENSHIN IMPACT
     </h2>
     <div class="container-lg">
         <div class="row">
-            @foreach (var acc in Model.OrderBy(m => m.UID))
+            @foreach(var acc in Model.OrderBy(m=>m.UID))
             {
-                if (count == 4) break;
+            string url = Functions.TitleSlugGeneration("AccGI", "detail", acc.UID);
+            if (count == 4) break;
                 string img = "style/images/genshin/category/genshin-vip.webp";
                 if (acc.Img != null)
                     img = acc.Img;
@@ -23,6 +26,8 @@
                             <a href="#"><img class="img-banner" style="background-image: url(@img)"></a>
                             <h2 class="note__title">
                                 UID: @acc.UID
+                            </h2>
+                            <h2 class="note__title">
                                 Server: @acc.Server
                             </h2>
                             <div class="row g-0 info-line">
@@ -43,7 +48,7 @@
                             </div>
                             <div class="genshin-product-footer">
                                 <div class="hr-product mt-1 mb-1"></div>
-                                <a href="#">
+                                <a href="/@url">
                                     <button class="btn-pretty mb-2">
                                         Vào Xem Acc
                                     </button>

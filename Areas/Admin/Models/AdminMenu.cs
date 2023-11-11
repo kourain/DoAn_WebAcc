@@ -5,6 +5,7 @@ namespace DoAn_WebAcc.Areas.Admin.Models
 {
     [Table("AdminMenu")]
     public class AdminMenu
+
     {
         [Key]
         public long AdminMenuId { get; set; }
@@ -14,7 +15,7 @@ namespace DoAn_WebAcc.Areas.Admin.Models
         public int ItemOrder { get; set; }
         public bool? IsActive { get; set; }
         public string? ItemTarget { get; set; }
-        public string? AreaName { get; set; }
+        public string? AreaName { get; set;}
         public string? ControllerName { get; set; }
         public string? ActionName { get; set; }
         public string? Icon { get; set; }

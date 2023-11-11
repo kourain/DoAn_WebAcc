@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "List Acc GI";
+}
+@model DoAn_WebAcc.Models.AccGI
+@using DoAn_WebAcc.Utilities;
+<center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon"></center>
+<h1 class="guide__title" style="margin-bottom: 72px;">
+    Chi tiết acc Honkai Impact 3
+</h1>
+<div class="guide__title">
+    <div class="poster__sign col-lg-12" style="
+    background-color: rgb(27 25 60 / 58%);
+    border-radius: 30px;">
+        <center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon" style="margin-bottom: -15px;"></center>
+        <div id="demo" class="carousel slide" data-ride="carousel" style="margin-top: -6px;">
+            <!-- The slideshow -->
+            <div class="info-detail-product">
+                <div class="row g-0 info-line">
+                    <section class="col text-center text-uppercase mr-5">
+                        <h4>
+                            Cấp thuyền trưởng
+                        </h4> @Model.LV
+                    </section>
+                    <section class="col text-center text-uppercase text-nowrap">
+                        <h4>
+                            Khu Vực
+                        </h4> @Model.Server
+                    </section>
+                </div>
+                <div class="hr-product"></div>
+                <div class="row g-0 info-line">
+                    <section class="row g-0 text-center">
+                        <span class="more-detail">Acc Chưa gắn Mail và chưa cài Sinh Nhật</span>
+                    </section>
+                </div>
+                <div class="hr-product"></div>
+                <div class="row g-0 info-line">
+                    <section class="row g-0 text-center">
+                        <h4 class="col-12 pb-2">
+                            Số Nhân Vật: @Model.CharCount
+                        </h4>
+                    </section>
+                </div>
+                <div class="row g-0 info-line">
+                    <section class="row g-0 text-center">
+                        <h4 class="col-12 pb-2">
+                            Số Vũ khí: @Model.Weapon
+                        </h4>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn-pretty float-right">@Model.Price<sup>đ</sup></button>
+                </div>
+                <div class="col-6">
+                    <form method="post" action="https://shopgenshin247.com/star-rail/buy-acc-normal">
+                        <input type="hidden" name="_token" value="4AHcwGUgBNZoH0qyqtmP9wnWElcXZMXIdaeEoVHk">                                            
+                        <input name="acc_id" value="470" hidden>
+                        <button name="buy_acc" value="buy_acc" class="btn-pretty">
+                            Mua ngay
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<iframe src="https://enka.network/u/@Model.UID" style="width:100%;height:900px"></iframe>

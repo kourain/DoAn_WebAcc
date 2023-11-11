@@ -19,7 +19,7 @@ namespace DoAn_WebAcc.Components
                            orderby p.UID descending
                            select p).Take(4).ToList();
 
-            return await Task.FromResult((IViewComponentResult)View("Default", listacc));
+            return await Task.FromResult((IViewComponentResult)View("Home", listacc));
         }
 
     }

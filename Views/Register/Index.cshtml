@@ -1,0 +1,98 @@
+﻿@using DoAn_WebAcc.Utilities;
+@model DoAn_WebAcc.Models.User;
+<center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon"></center>
+<h1 class="guide__title" style="margin-bottom: 72px;"></h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Register HoyoGameShop</div>
+
+                <div class="card-body">
+                    <form asp-controller="Register" asp-action="Index" novalidate>
+                        <div class="form-group row">
+                            <label for="full_name" class="col-md-4 col-form-label text-md-right">
+                                Họ và tên
+                            </label>
+                            <div class="col-md-6">
+                                <input type="text" asp-for="Name" class="form-control" equired placeholder="Tên này công khai, người khác có thể thấy" autocomplete="name" autofocus>
+                                <div class="invalid-feedback">Vui lòng nhập tên</div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="login_name" class="col-md-4 col-form-label text-md-right">
+                                Tên đăng nhập
+                            </label>
+
+                            <div class="col-md-6">
+                                <input asp-for="Username" id="login_name" type="text" class="form-control " required autocomplete="name" autofocus placeholder="Giữ bí mật, không điền giống bên trên">
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">
+                                Số điện thoại
+                            </label>
+
+                            <div class="col-md-6">
+                                <input asp-for="Phone" id="phone" type="text" class="form-control "required placeholder="Chính xác để lấy lại mật khẩu nếu quên">
+
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">
+                                Địa chỉ email
+                            </label>
+                            <div class="col-md-6">
+                                <input asp-for="Mail" id="email" type="email" class="form-control"required placeholder="Chính xác để lấy lại mật khẩu nếu quên" autocomplete="email">
+
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">
+                                Mật khẩu
+                            </label>
+
+                            <div class="col-md-6">
+                                <input asp-for="Password" id="password" type="password" class="form-control " required placeholder="Điền tối thiểu 8 ký tự" autocomplete="new-password">
+
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
+                                Xác nhận mật khẩu
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Nhập lại mật khẩu giống bên trên" autocomplete="new-password">
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center text-danger">
+                            <h6>
+                                @Functions._Message
+                            </h6>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Đăng ký
+                                </button>
+                                <a href="/login" class="btn btn-light">
+                                    Đăng nhập
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
