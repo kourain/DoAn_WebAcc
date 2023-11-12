@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DoAn_WebAcc.Utilities;
+using DoAn_WebAcc.Areas.Admin.Utilities;
 namespace DoAn_WebAcc.Areas.Admin.Controllers
 {
     [Area("Admin")] 

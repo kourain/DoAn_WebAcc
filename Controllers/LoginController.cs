@@ -17,7 +17,7 @@ namespace DoAn_WebAcc.Controllers
         [HttpPost]
         public IActionResult Index(User user)
         {
-            if (user == null)
+            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
             {
                 return NotFound();
             }

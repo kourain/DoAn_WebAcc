@@ -26,7 +26,7 @@
                     @if (Smenu.Count == 0)
                     {
                         <li class="nav-item">
-                            <a href="#" class="nav-link menu-header">
+                            <a href="/@menu.ControllerName/@menu.ActionName" class="nav-link menu-header">
                                 @menu.MenuName
                             </a>
                         </li>
@@ -41,7 +41,7 @@
                                 @foreach (var smn in Smenu)
                                 {
                                     <li>
-                                        <a href="" class="dropdown-item ">
+                                        <a href="/@smn.ControllerName/@smn.ActionName" class="dropdown-item ">
                                             <i class="fas fa-history mr-1"></i>
                                             @smn.MenuName
                                         </a>

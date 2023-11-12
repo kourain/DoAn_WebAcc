@@ -5,13 +5,12 @@ using System.Security.Cryptography;
 using System.Text;
 
 
-namespace DoAn_WebAcc.Utilities
+namespace DoAn_WebAcc.Areas.Admin.Utilities
 {
     public class Functions
     {
 
         public static int _UserID = 0;
-        public static string _Name = string.Empty;
         public static string _UserName = string.Empty;
         public static string _Message = string.Empty;
         public static string _MessageEmail = string.Empty;
@@ -42,7 +41,7 @@ namespace DoAn_WebAcc.Utilities
         }
         public static bool IsLogin()
         {
-            if (string.IsNullOrEmpty(Functions._Name) || (Functions._UserID <= 0))
+            if (string.IsNullOrEmpty(Functions._UserName) || string.IsNullOrEmpty(Functions._Email) || (Functions._UserID <= 0))
                 return false;
             return true;
         }

@@ -9,14 +9,14 @@
             <div class="card" style="box-shadow: unset">
                 <div class="card-body">
                     <br>
-                    <form class="row g-3 needs-validation" asp-controller="Login" asp-action="Index" novalidate>
+                    <form class="row g-3 needs-validation" asp-controller="Login" asp-action="Index">
                         <input type="hidden" name="_token" value="4AHcwGUgBNZoH0qyqtmP9wnWElcXZMXIdaeEoVHk">
                         <div class="form-group row">
                             <label for="login_name" class="col-md-4 col-form-label text-md-right">
                                 Tên đăng nhập
                             </label>
                             <div class="col-md-6">
-                                <input asp-for="Username" type="text" id="login_name" class="concave form-control " required autocomplete="login_name" autofocus>
+                                <input asp-for="Username" type="text" class="concave form-control " required autocomplete="login_name" autofocus>
                                 <div class="invalid-feedback">Hãy nhập tên đăng nhập</div>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                                 Mật khẩu
                             </label>
                             <div class="col-md-6">
-                                <input asp-for="Password" id="password" type="password" class="concave form-control" required autocomplete="current-password">
+                                <input asp-for="Password" type="password" class="concave form-control" required autocomplete="current-password">
                                 <div class="invalid-feedback">Hãy nhập mật khẩu</div>
                             </div>
                         </div>

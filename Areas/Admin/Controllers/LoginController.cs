@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using DoAn_WebAcc.Areas.Admin.Models;
 using DoAn_WebAcc.Models;
-using DoAn_WebAcc.Utilities;
+using DoAn_WebAcc.Areas.Admin.Utilities;
 namespace DoAn_WebAcc.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -20,12 +20,13 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Index(AdminUser user)
         {
-           if (user == null)
+
+            if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
             {
                 return NotFound();
             }
-            
-           string pw = Functions.MD5Password(user.Password);
+
+            string pw = Functions.MD5Password(user.Password);
             var check = _dataContext.AdminUsers.Where(m => (m.Email == user.Email) && (m.Password == pw)).FirstOrDefault();
             if (check == null)
             {

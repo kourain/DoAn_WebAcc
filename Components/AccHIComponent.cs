@@ -15,11 +15,11 @@ namespace DoAn_WebAcc.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var listacc = (from p in _context.AccHIs
-                           where (p.Sold != null || p.Sold == 0)
+                           where (p.Sold == null || p.Sold == 0)
                            orderby p.UID descending
                            select p).Take(4).ToList();
 
-            return await Task.FromResult((IViewComponentResult)View("Home", listacc));
+            return await Task.FromResult((IViewComponentResult)View("Default", listacc));
         }
 
     }

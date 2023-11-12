@@ -9,13 +9,13 @@
                 <div class="card-header">Register HoyoGameShop</div>
 
                 <div class="card-body">
-                    <form asp-controller="Register" asp-action="Index" novalidate>
+                    <form asp-controller="Register" asp-action="Index">
                         <div class="form-group row">
                             <label for="full_name" class="col-md-4 col-form-label text-md-right">
                                 Họ và tên
                             </label>
                             <div class="col-md-6">
-                                <input type="text" asp-for="Name" class="form-control" equired placeholder="Tên này công khai, người khác có thể thấy" autocomplete="name" autofocus>
+                                <input type="text" asp-for="Name" class="form-control" id="full_name" required placeholder="Tên này công khai, người khác có thể thấy" autocomplete="name" autofocus>
                                 <div class="invalid-feedback">Vui lòng nhập tên</div>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                             </label>
 
                             <div class="col-md-6">
-                                <input asp-for="Username" id="login_name" type="text" class="form-control " required autocomplete="name" autofocus placeholder="Giữ bí mật, không điền giống bên trên">
+                                <input asp-for="Username" class="form-control " id="login_name" required autocomplete="name" autofocus placeholder="Giữ bí mật, không điền giống bên trên">
                                 <div class="invalid-feedback">Vui lòng nhập</div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                             </label>
 
                             <div class="col-md-6">
-                                <input asp-for="Phone" id="phone" type="text" class="form-control "required placeholder="Chính xác để lấy lại mật khẩu nếu quên">
+                                <input asp-for="Phone" type="number" id="phone" class="form-control " required placeholder="Chính xác để lấy lại mật khẩu nếu quên">
 
                                 <div class="invalid-feedback">Vui lòng nhập</div>
                             </div>
@@ -47,8 +47,8 @@
                                 Địa chỉ email
                             </label>
                             <div class="col-md-6">
-                                <input asp-for="Mail" id="email" type="email" class="form-control"required placeholder="Chính xác để lấy lại mật khẩu nếu quên" autocomplete="email">
-
+                                <input asp-for="Mail" type="email" id="email" class="form-control" required placeholder="Chính xác để lấy lại mật khẩu nếu quên" autocomplete="email">
+                                
                                 <div class="invalid-feedback">Vui lòng nhập</div>
                             </div>
                         </div>
@@ -59,19 +59,18 @@
                             </label>
 
                             <div class="col-md-6">
-                                <input asp-for="Password" id="password" type="password" class="form-control " required placeholder="Điền tối thiểu 8 ký tự" autocomplete="new-password">
-
+                                <input asp-for="Password" id="password" name="password" type="password" class="form-control " pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Password" required>
                                 <div class="invalid-feedback">Vui lòng nhập</div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
+                            <label for="password_two" class="col-md-4 col-form-label text-md-right">
                                 Xác nhận mật khẩu
                             </label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Nhập lại mật khẩu giống bên trên" autocomplete="new-password">
+                                <input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" class="form-control " onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" placeholder="Verify Password" required>
                                 <div class="invalid-feedback">Vui lòng nhập</div>
                             </div>
                         </div>

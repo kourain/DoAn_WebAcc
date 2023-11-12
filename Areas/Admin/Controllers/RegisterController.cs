@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using DoAn_WebAcc.Areas.Admin.Models;
 using DoAn_WebAcc.Controllers;
 using DoAn_WebAcc.Models;
-using DoAn_WebAcc.Utilities;
+using DoAn_WebAcc.Areas.Admin.Utilities;
 namespace DoAn_WebAcc.Areas.Admin.Controllers
 {
     [Area("Admin")]

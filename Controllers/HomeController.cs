@@ -26,51 +26,6 @@ namespace DoAn_WebAcc.Controllers
         {
             return View();
         }
-        [Route("/AccHI-{slug}-{id:int}.html", Name = "AccHI")]
-        public IActionResult AccHI_view(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-
-            }
-            var acc = _dataContext.AccHIs.FirstOrDefault(m => (m.UID == id));
-            if (acc == null)
-            {
-                return NotFound();
-            }
-            return View(acc);
-        }
-        [Route("/AccGI-{slug}-{id:int}.html", Name = "AccGI")]
-        public IActionResult AccGI_view(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-
-            }
-            var acc = _dataContext.AccGIs.FirstOrDefault(m => (m.UID == id));
-            if (acc == null)
-            {
-                return NotFound();
-            }
-            return View(acc);
-        }
-        [Route("/AccHSR-{slug}-{id:int}.html", Name = "AccHSR")]
-        public IActionResult AccHSR_view(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-
-            }
-            var acc = _dataContext.AccHSRs.FirstOrDefault(m => (m.UID == id));
-            if (acc == null)
-            {
-                return NotFound();
-            }
-            return View(acc);
-        }
         public IActionResult Logout()
         {
             Functions._UserID = 0;
