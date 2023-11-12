@@ -51,7 +51,7 @@ namespace DoAn_WebAcc.Utilities
         }
         public static bool IsLogin()
         {
-            if (string.IsNullOrEmpty(Functions._UserName) || string.IsNullOrEmpty(Functions._Email) || (Functions._UserID <= 0))
+            if (string.IsNullOrEmpty(Functions._Name) || (Functions._UserID <= 0))
                 return false;
             return true;
         }

@@ -1,4 +1,5 @@
 ﻿using DoAn_WebAcc.Models;
+using DoAn_WebAcc.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -69,6 +70,13 @@ namespace DoAn_WebAcc.Controllers
                 return NotFound();
             }
             return View(acc);
+        }
+        public IActionResult Logout()
+        {
+            Functions._UserID = 0;
+            Functions._Name = string.Empty;
+            Functions._Message = string.Empty;
+            return RedirectToAction("Index", "Home");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
