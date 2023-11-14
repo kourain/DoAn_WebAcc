@@ -55,20 +55,23 @@
                     <button class="btn-pretty float-right">@Model.Price<sup>đ</sup></button>
                 </div>
                 <div class="col-6">
-                    <form method="post" action="https://shopgenshin247.com/star-rail/buy-acc-normal">
-                        <input type="hidden" name="_token" value="4AHcwGUgBNZoH0qyqtmP9wnWElcXZMXIdaeEoVHk">
-                        <input name="acc_id" value="470" hidden>
-                        <button name="buy_acc" value="buy_acc" class="btn-pretty">
-                            Mua ngay
-                        </button>
-                    </form>
+                    <a href="@accinf" class="col-6">
+                        <button class="btn-pretty">Xem Hoyolab</button>
+                    </a>
                 </div>
             </div>
         </div>
+        <center>
+            <div class="col-6">
+            <form method="post" action="https://shopgenshin247.com/star-rail/buy-acc-normal">
+                <input type="hidden" name="UserID" value="@Functions._UserID">
+                <input name="UID" value="@Model.UID" hidden>
+                <button name="buy_acc" value="buy_acc" class="btn-pretty">
+                    Mua ngay
+                </button>
+            </form>
+            </div>
+        </center>
     </div>
 </div>
-
-@if (Model.HoyolabID != null)
-{
-    <iframe src="@accinf" style="width:100%;height:900px"></iframe>
-}
+<iframe src="https://enka.network/u/@Model.UID" style="width:100%;height:900px"></iframe>
