@@ -7,17 +7,17 @@ using DoAn_WebAcc.Utilities;
 namespace DoAn_WebAcc.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class MenuController : Controller
+    public class FooterController : Controller
     {
         private readonly DataContext _Context;
-        public MenuController(DataContext context)
+        public FooterController(DataContext context)
         {
             _Context = context;
         }
         public IActionResult Index()
         {
 
-            var mnlist = _Context.Menus.OrderBy(m => m.MenuId).ToList();
+            var mnlist = _Context.Footers.OrderBy(m => m.FooterId).ToList();
             return View(mnlist);
         }
         public IActionResult Delete(int? id)
@@ -26,7 +26,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var mn = _Context.Menus.Find(id);
+            var mn = _Context.Footers.Find(id);
             if (mn == null)
             {
                 return NotFound();
@@ -36,23 +36,23 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            var deleMenu = _Context.Menus.Find(id);
-            if (deleMenu == null)
+            var deleFooter = _Context.Footers.Find(id);
+            if (deleFooter == null)
             {
                 return NotFound();
             }
-            _Context.Menus.Remove(deleMenu);
+            _Context.Footers.Remove(deleFooter);
             _Context.SaveChanges();
             return RedirectToAction("Index");
         }
     
         public IActionResult Create()
         {
-            var mnlist = (from m in _Context.Menus
+            var mnlist = (from m in _Context.Footers
                           select new SelectListItem()
                           {
-                              Text = m.MenuName,
-                              Value = m.MenuId.ToString()
+                              Text = m.ItemText,
+                              Value = m.FooterId.ToString()
                           }
                           ).ToList();
             mnlist.Insert(0, new SelectListItem()
@@ -65,21 +65,21 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Menu mn)
+        public IActionResult Create(Footer mn)
         {
             //lấy max footerid có sẵn trong bảng csdl
-            int Menuid = 0;
+            int Footerid = 0;
             try
             {
-                Menuid = (from p in _Context.Menus
-                        orderby p.MenuId descending
-                        select p.MenuId).Take(1).ToList()[0];
+                Footerid = (from p in _Context.Footers
+                          orderby p.FooterId descending
+                          select p.FooterId).Take(1).ToList()[0];
             }
-            catch { Menuid = 0; };
-            mn.MenuId = Menuid + 1;
+            catch { Footerid = 0; };
+            mn.FooterId = Footerid + 1;
             if (ModelState.IsValid)
             {
-                _Context.Menus.Add(mn);
+                _Context.Footers.Add(mn);
                     _Context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -92,16 +92,16 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var mn=_Context.Menus.Find(id);
+            var mn=_Context.Footers.Find(id);
             if (mn == null)
             {
                 return NotFound();
             }
-            var mnlist=(from m in _Context.Menus
+            var mnlist=(from m in _Context.Footers
                         select new SelectListItem()
                         {
-                            Text=m.MenuName,
-                            Value=m.MenuId.ToString()   
+                            Text=m.ItemText,
+                            Value=m.FooterId.ToString()   
                         }
                         ).ToList() ;
             mnlist.Insert(0, new SelectListItem()
@@ -114,15 +114,19 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
 		}
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public IActionResult Edit(Menu mn)
+		public IActionResult Edit(Footer mn)
 		{
 			if (ModelState.IsValid)
 			{
-				_Context.Menus.Update(mn);
+				_Context.Footers.Update(mn);
 				_Context.SaveChanges();
 				return RedirectToAction("Index");
 			}
 			return View();
 		}
+
+
+
+
 	}
 }

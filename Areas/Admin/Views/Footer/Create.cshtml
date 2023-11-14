@@ -1,0 +1,49 @@
+﻿@model DoAn_WebAcc.Models.Footer
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Xác nhận thêm Footer</h2>
+    </div>
+    <div class="container shadow p-5">
+        <div class="row pb-2">
+            <h2>Thêm mới Footer</h2>
+        </div>
+        <form method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="ItemText">ItemText</label>
+                    <input type="text" class="form-control mb-3" asp-for="ItemText" placeholder="Nhập tên Footer"> <span asp-validation-for="ItemText" class=" alert-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="alert-danger" asp-validation-summary="ModelOnly"></div> <label asp-for="ParentID">ParentID</label>
+                    <select asp-for="ParentID"
+                            class="form-control"
+                            asp-items="@(new SelectList (ViewBag.mnList, "Value", "Text"))">
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Link">Link</label>
+                    <input type="text" class="form-control mb-3" asp-for="Link" placeholder="Enter Link"> <span asp-validation-for="Link" class=" alert-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="ItemOrder">ItemOrder</label>
+                    <input type="text" class="form-control mb-3" asp-for="ItemOrder" placeholder="Enter ItemOrder"> <span asp-validation-for="ItemOrder" class=" alert-danger"></span>
+                </div>
+                <div class="form-group mt-5 mb-5">
+                    <label>
+                        @Html.CheckBox("IsActive", false)
+                        Hiển thị
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Lưu</button> 
+            <a asp-controller="Footer" asp-action="Index" class="btn btn-lg btn-warning p-2">Quay lại</a>
+        </form>
+
+    </div>
+</main>

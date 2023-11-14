@@ -9,8 +9,6 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            if (!Functions.IsLogin())
-                return RedirectToAction("Index", "Login");
             return View();
         }
         public IActionResult Logout()

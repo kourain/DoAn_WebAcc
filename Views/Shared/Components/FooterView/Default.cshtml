@@ -1,0 +1,37 @@
+﻿@model IList<Footer>
+@using DoAn_WebAcc.Utilities;
+<!-- Footer -->
+<footer class="mt-5 p-3" style="background: rgb(27 25 60 / 58%);color: #fff; margin-right: -6px; margin-left: -8px">
+    <div class="container-lg">
+        <h2 class="guide__title mt-3">
+            <span style="font-size: xx-large;font-family: cursive;" class="link-active">HoyoGames Shop</span>
+        </h2>
+        <div class="row">
+            @foreach (var item in Model.Where(m => m.ParentID == 0).OrderBy(n => n.ItemOrder))
+            {
+                var Pid = item.FooterId;
+                var Smenu = Model.Where(p => p.ParentID == Pid).OrderBy(p => p.ItemOrder).ToList();
+                <section class="col-12 col-lg-4">
+                    <div class="h h4 link-active">
+                        <i class="@item.Icon"></i><span>@item.ItemText</span>
+                    </div>
+                    @if (Smenu.Count() > 0)
+                        foreach (var smn in Smenu)
+                        {
+                            <p class="fw-bold">
+                                <i class="@smn.Icon" style="color: #e3e3e3;"></i>
+                                @smn.ItemText
+                                <a href="@smn.Link" style="color:red">
+                                    @smn.TextLink
+                                </a>
+                            </p>
+
+                        }
+                </section>
+            }
+        </div>
+        <p class="mt-3 small">
+            © HoyoGames Shop | Mai Văn Quyến - Hoàng Minh Đạo
+        </p>
+    </div>
+</footer>

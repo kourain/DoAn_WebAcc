@@ -73,6 +73,16 @@ CREATE TABLE [User](
 	[Mail] [char](30) NULL,
 	[Password] [char](30) NULL
 ) ON [PRIMARY]
+CREATE TABLE [dbo].[Footer] (
+    [FooterID]    BIGINT        NOT NULL,
+    [ItemName]       NVARCHAR (50) NULL,
+    [Column]      INT           NULL,
+    [ParentLevel]    INT           NULL,
+    [ItemOrder]      INT           NULL,
+    [IsActive]       BIT           NULL,
+    [Icon]           NVARCHAR (50) NULL,
+    [IdName]         NVARCHAR (50) NULL
+);
 GO
 INSERT INTO [AdminMenu] VALUES
 (1,N'Bảng điều khiển',0,0,1,0,NULL,'Admin','Home','Index',NULL,NULL),

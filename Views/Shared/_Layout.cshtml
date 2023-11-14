@@ -8,8 +8,6 @@
     <meta name="description" content="">
     <meta name="keywords" content="" />
     <base>
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="4AHcwGUgBNZoH0qyqtmP9wnWElcXZMXIdaeEoVHk">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/style/plugins/fontawesome-free/css/all.min.css">
     <link rel="icon" type="image/png" href="../upanh.cf/30c1d3vknx.jpg">
@@ -104,49 +102,7 @@
             <section class="content">
                 <div class="container-fluid">
                     @RenderBody()
-                    <footer class="mt-5 p-3" style="background: rgb(27 25 60 / 58%);color: #fff; margin-right: -6px; margin-left: -8px">
-                        <div class="container-lg">
-                            <h2 class="guide__title mt-3">
-                                <span style="font-size: xx-large;font-family: cursive;" class="link-active">HoyoGames Shop</span>
-                            </h2>
-                            <div class="row">
-                                <section class="col-12 col-lg-4">
-                                    <div class="h h4 link-active">
-                                        Về
-
-                                        <a href='index.html' style="color: inherit;text-shadow:unset">HoyoGames Shop</a>
-                                    </div>
-                                    <p><span style="caret-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%;"><font color="#ffffff">Chúng tôi làm việc chuyên nghiệp,</font></span></p><p><span style="caret-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%;"><font color="#ffffff">Phục vụ Tận Tình và Chu Đáo nhất,</font></span></p><p><span style="caret-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%;"><font color="#ffffff">Chúng tôi luôn luôn Bảo vệ lợi ích</font></span></p><p><span style="caret-color: rgb(255, 255, 255); -webkit-text-size-adjust: 100%;"><font color="#ffffff">của khách hàng lên hàng đầu.</font><font color="#ff0000">🥰</font></span></p>
-                                    <p class="mt-3 small">
-                                        © HoyoGames Shop
-                                    </p>
-                                    <div class="h h5">
-                                        <i class="fa fa-language"></i> Ngôn ngữ
-                                    </div>
-                                    <a class="btn btn-sm  btn-info " href="index.html">English</a>
-                                    <a class="btn btn-sm  btn-info " href="index.html">
-                                        Mặc định
-                                    </a>
-                                </section>
-
-                                <section class="col-12 col-lg-4">
-                                    <div class="h h4 link-active">
-                                        Chúng tôi
-                                    </div>
-                                    <p class="m-0"><p class="p3" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-stretch: normal; font-size: 17px; line-height: normal; caret-color: rgb(0, 0, 0); -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto;"><font face="UICTFontTextStyleBody" color="#0000ff">Số điện thoại hỗ trợ</font><font face="UICTFontTextStyleBody"><font color="#0000ff">:</font><font color="#ffff00"> </font><b><font color="#ff0000">0123456789</font></b></font></p><p class="p3" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-stretch: normal; font-size: 17px; line-height: normal; caret-color: rgb(0, 0, 0); -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto;"><span class="s2" style="font-family: UICTFontTextStyleBody;"><font color="#ffff00">Group FB thảo luận và hỗ trợ:</font><font color="#000000">&nbsp;</font><a href="https://www.facebook.com/kourena"><span class="s3" style="text-decoration: underline;"><font color="#0000ff">Ấn Vào</font></span></a></span></p><p class="p3" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-stretch: normal; font-size: 17px; line-height: normal; caret-color: rgb(0, 0, 0); -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto;"><span class="s2" style="font-family: UICTFontTextStyleBody;"><font color="#ffffff">Group Discord HoyoGames Shop:</font></span><span class="s2" style="color: rgb(0, 0, 0); font-family: UICTFontTextStyleBody;">&nbsp;</span><a href="#" target="_blank"><font color="#0000ff"><u>Ấn Vào</u></font></a><span class="s2" style="font-family: UICTFontTextStyleBody;"><br><font color="#00ff00">Link page hỗ trợ các vấn đề :</font><font color="#000000">&nbsp;</font></span><a href="https://www.facebook.com/kourena" target="_blank"><font color="#0000ff"><u>Ấn Vào</u></font></a></p></p>
-
-                                </section>
-                                <section class="col-12 col-lg-4">
-                                    <i class="fab fa-facebook-square fa-2x mr-2"></i>
-                                    <i class="fab fa-youtube fa-2x"></i>
-                                    <p class="mt-3 fw-bold"><i class="fa fa-phone mr-2"></i>Hotline: 0123456789</p>
-                                    <p class="fw-bold"><i class="fa fa-clock mr-2"></i>Work time: 24/7</p>
-                                    <p class="fw-bold"><i class="fa fa-map-marked-alt mr-2"></i>Address: 182 Lê Duẩn, Vinh, Nghệ An </p>
-                                    <p class="m-0"></p>
-                                </section>
-                            </div>
-                        </div>
-                    </footer>
+                    @await Component.InvokeAsync("FooterView")
                 </div>
             </section>
         </main>

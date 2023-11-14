@@ -33,7 +33,7 @@ namespace DoAn_WebAcc.Controllers
             _List_maxpage = count / 12;
             if ((_List_maxpage * 12) < count) { _List_maxpage = _List_maxpage + 1; }
 
-            var acc = _dataContext.AccHIs.Where(p => p.Sold != null || p.Sold == 0).Skip(12 * (page - 1)).Take(12).ToList();
+            var acc = _dataContext.AccHIs.Where(p => p.Sold == null || p.Sold == 0).Skip(12 * (page - 1)).Take(12).ToList();
             return View(acc);
         }
         [Route("/AccHI/HistoryBuy")]

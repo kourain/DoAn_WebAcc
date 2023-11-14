@@ -99,7 +99,7 @@
                                 <div class="row g-0 info-line">
                                     <section class="col text-center">
                                         <label>level</label> @acc.LV
-                                        </section>
+                                    </section>
                                     <section class="col text-center text-uppercase">
                                         <label>
                                             Khu Vực
@@ -138,33 +138,33 @@
                         </div>
                     </article>
                 }
-                <nav class="mt-4 float-right">
-                    <nav>
-                        <ul class="pagination">
-                            @{
-                                int pagecount = AccHSRController._List_pagenow;
-                                int maxpagecount = AccHSRController._List_maxpage;
-                                //pre page
-                                int prepagecount = pagecount - 1;
-                                if (prepagecount < 1) prepagecount = 1;
-                                //next page
-                                int nextpagecount = pagecount + 1;
-                                if (nextpagecount > maxpagecount) nextpagecount = maxpagecount;
-                                <li class="page-item">
-                                    <a class="page-link" href="/AccHI/page=@prepagecount" aria-label="&laquo; Previous">&lsaquo;</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link"> @pagecount </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="/AccHI/page=@nextpagecount" aria-label="Next &raquo;">&rsaquo;</a>
-                                </li>
-
-                            }
-                        </ul>
-                    </nav>
-                </nav>
             </div>
+            <nav class="mt-4 float-right">
+                <nav>
+                    <ul class="pagination">
+                        @{
+                            int pagecount = AccHSRController._List_pagenow;
+                            int maxpagecount = AccHSRController._List_maxpage;
+                            //pre page
+                            int prepagecount = pagecount - 1;
+                            if (prepagecount < 1) prepagecount = 1;
+                            //next page
+                            int nextpagecount = pagecount + 1;
+                            if (nextpagecount > maxpagecount) nextpagecount = maxpagecount;
+                            <li class="page-item">
+                                <a class="page-link" href="/AccHSR/page=@prepagecount" aria-label="&laquo; Previous">&lsaquo;</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link"> @pagecount/@maxpagecount </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="/AccHSR/page=@nextpagecount" aria-label="Next &raquo;">&rsaquo;</a>
+                            </li>
+
+                        }
+                    </ul>
+                </nav>
+            </nav>
         </div>
     </div>
 </div>
