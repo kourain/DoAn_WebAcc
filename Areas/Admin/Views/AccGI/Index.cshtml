@@ -30,12 +30,11 @@
 								<td class="col-1 text-center">Số vũ khí</td>
 								<td class="col-1 text-center">Server</td>
 								<td class="col-1 text-center">Phân loại</td>
-								<td class="col-2 text-center">Hình ảnh</td>
+								<td class="col-2 text-center">HoyolabID</td>
 								<td class="col-1 text-center">Giá</td>
 								<th class="col-2 text-center">Chức năng</th>
 							</tr>
 						</thead>
-
 						<tbody>
 							@foreach (var item in Model)
 							{
@@ -46,7 +45,7 @@
 									<td class="text-center">@item.Weapon</td>
 									<td class="text-center">@item.Server</td>
 									<td class="text-center">@item.Type</td>
-									<td class="text-center">@item.Img</td>
+									<td class="text-center">@item.HoyolabID</td>
 									<td class="text-center">@item.Price</td>
 									<td class="text-center">
 										<a asp-area="Admin" asp-controller="AccGI" asp-action="Edit" asp-route-id="@item.UID" class="btn btn-primary btn-sm" title="Sửa thông tin tài khoản bán">

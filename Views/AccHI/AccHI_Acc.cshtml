@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Acc HI";
+    string accinf = $"https://act.hoyolab.com/app/community-game-records-sea/index.html?bbs_presentation_style=fullscreen&bbs_auth_required=true&gid=2&user_id={Model.HoyolabID}&utm_source=hoyolab&utm_medium=gamecard&bbs_theme=dark&bbs_theme_device=1#/hsr";
 }
 @model DoAn_WebAcc.Models.AccHI
 @using DoAn_WebAcc.Utilities;
@@ -65,3 +66,8 @@
         </div>
     </div>
 </div>
+
+@if (Model.HoyolabID != null)
+{
+    <iframe src="@accinf" style="width:100%;height:900px"></iframe>
+}

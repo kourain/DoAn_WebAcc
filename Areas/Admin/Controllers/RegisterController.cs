@@ -29,11 +29,11 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
                 var check = _dataContext.AdminUsers.Where(m => m.Email == user.Email).FirstOrDefault();
                 if (check != null)
                 {
-                    Functions._MessageEmail = "Duplicate Email";
+                    Functions._Message = "Duplicate Email";
                     return RedirectToAction("Index", "Register");
                 }
 
-                Functions._MessageEmail = string.Empty;
+                Functions._Message = string.Empty;
                 user.Password = Functions.MD5Password(user.Password);
                 int usid = 0;
                 try
