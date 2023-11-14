@@ -48,7 +48,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
     
         public IActionResult Create()
         {
-            var mnlist = (from m in _Context.Menus
+            var mnlist = (from m in _Context.Menus.Where(m => m.ParentID == 0)
                           select new SelectListItem()
                           {
                               Text = m.MenuName,
@@ -97,7 +97,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var mnlist=(from m in _Context.Menus
+            var mnlist=(from m in _Context.Menus.Where(m => m.ParentID == 0)
                         select new SelectListItem()
                         {
                             Text=m.MenuName,

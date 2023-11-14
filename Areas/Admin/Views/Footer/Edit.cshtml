@@ -19,12 +19,15 @@
                 <input type="text" class="form-control mb-3" asp-for="FooterId" type="hidden">
                 <div class="form-group col-md-6">
                     <label asp-for="ItemText">ItemText</label>
-                    <input type="text" class="form-control mb-3" asp-for="ItemText" placeholder="Nhập tên Footer">
+                    <input type="text" class="form-control mb-3" asp-for="ItemText" placeholder="Nhập tên Footer" required>
                     <span asp-validation-for="ItemText" class=" alert-danger"></span>
                 </div>
-            </div>
 
-            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Column">Column</label>
+                    <input type="number" class="form-control mb-3" asp-for="Column" placeholder="Enter Column" required>
+                    <span asp-validation-for="Column" class=" alert-danger"></span>
+                </div>
                 <div class="form-group col-md-6">
                     <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
                     <label asp-for="ParentID">ParentID</label>
@@ -34,14 +37,24 @@
                     </select>
                 </div>
                 <div class="form-group col-md-6">
+                    <label asp-for="ItemOrder">ItemOrder</label>
+                    <input type="number" class="form-control mb-3" asp-for="ItemOrder" placeholder="Enter ItemOrder" required>
+                    <span asp-validation-for="ItemOrder" class=" alert-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Icon">Icon</label>
+                    <input type="text" class="form-control mb-3" asp-for="Icon" placeholder="Enter Icon">
+                    <span asp-validation-for="Icon" class=" alert-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="TextLink">TextLink</label>
+                    <input type="text" class="form-control mb-3" asp-for="TextLink" placeholder="Enter TextLink">
+                    <span asp-validation-for="TextLink" class=" alert-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
                     <label asp-for="Link">Link</label>
                     <input type="text" class="form-control mb-3" asp-for="Link" placeholder="Enter Link">
                     <span asp-validation-for="Link" class=" alert-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="ItemOrder">ItemOrder</label>
-                    <input type="text" class="form-control mb-3" asp-for="ItemOrder" placeholder="Enter ItemOrder">
-                    <span asp-validation-for="ItemOrder" class=" alert-danger"></span>
                 </div>
                 <div class="form-group mt-3 mb-5">
                     <label>

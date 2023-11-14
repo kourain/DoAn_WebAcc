@@ -48,7 +48,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
     
         public IActionResult Create()
         {
-            var mnlist = (from m in _Context.Footers
+            var mnlist = (from m in _Context.Footers.Where(m => m.ParentID == 0)
                           select new SelectListItem()
                           {
                               Text = m.ItemText,
@@ -97,7 +97,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var mnlist=(from m in _Context.Footers
+            var mnlist=(from m in _Context.Footers.Where(m => m.ParentID == 0)
                         select new SelectListItem()
                         {
                             Text=m.ItemText,
@@ -124,9 +124,5 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
 			}
 			return View();
 		}
-
-
-
-
 	}
 }

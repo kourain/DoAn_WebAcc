@@ -18,31 +18,22 @@
             <div class="form-row">
                 <input type="text" class="form-control mb-3" asp-for="UID" type="hidden">
                 <div class="form-group col-md-6">
-                    <label asp-for="UID">AccHIName</label>
-                    <input type="number" class="form-control mb-3" asp-for="UID" placeholder="Nhập UID AccHI" required>
+                    <label asp-for="UID">AccHSRName</label>
+                    <input type="number" class="form-control mb-3" asp-for="UID" placeholder="Nhập UID AccHSR" required>
                     <span asp-validation-for="UID" class=" alert-danger"></span>
                 </div>
-            </div>
-
-            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="LV">LV</label>
-                    <input type="number" class="form-control mb-3" asp-for="LV" placeholder="Nhập LV AccHI" required>
+                    <input type="number" class="form-control mb-3" asp-for="LV" placeholder="Nhập LV AccHSR" required>
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="CharCount">Số nhân vật</label>
                     <input type="number" class="form-control mb-3" asp-for="CharCount" placeholder="Nhập số nhân vật" required>
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Weapon">Số vũ khí</label>
                     <input type="number" class="form-control mb-3" asp-for="Weapon" placeholder="Nhập số vũ khí" required>
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Server">Server</label>
                     <select asp-for="Server" class="form-select" id="Server" required>
@@ -53,8 +44,6 @@
                         <option value="KR">KR</option>
                     </select>
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Type">Phân loại</label>
                     <select asp-for="Type" class="form-select" id="Type">
@@ -62,14 +51,10 @@
                         <option value="RR">Reroll</option>
                     </select>
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Img">Hình ảnh</label>
                     <input type="text" class="form-control mb-3" asp-for="Img" placeholder="Nhập đường dẫn hình ảnh">
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Price">Giá bán</label>
                     <input type="number" class="form-control mb-3" asp-for="Price" placeholder="Nhập giá bán" required>

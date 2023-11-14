@@ -14,7 +14,6 @@
         </div>
         <form method="post" asp-action="Edit">
             <div asp-validation-summary="All"></div>
-
             <div class="form-row">
                 <input type="text" class="form-control mb-3" asp-for="MenuId" type="hidden">
                 <div class="form-group col-md-6">
@@ -22,16 +21,7 @@
                     <input type="text" class="form-control mb-3" asp-for="MenuName" placeholder="Nhập tên menu">
                     <span asp-validation-for="MenuName" class=" alert-danger"></span>
                 </div>
-            </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label asp-for="Levels">Levels</label>
-                    <select asp-for="Levels" class="form-select" id="Levels">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </div>
                 <div class="form-group col-md-6">
                     <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
                     <label asp-for="ParentID">ParentID</label>
@@ -42,22 +32,22 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="ControllerName">ControllerName</label>
-                    <input type="text" class="form-control mb-3" asp-for="ControllerName" placeholder="Tên Controller"> 
+                    <input type="text" class="form-control mb-3" asp-for="ControllerName" placeholder="Tên Controller">
                     <span asp-validation-for="ControllerName" class=" alert-danger"></span>
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="ActionName">ActionName</label>
-                    <input type="text" class="form-control mb-3" asp-for="ActionName" placeholder="Tên Action"> 
+                    <input type="text" class="form-control mb-3" asp-for="ActionName" placeholder="Tên Action">
                     <span asp-validation-for="ActionName" class=" alert-danger"></span>
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="Link">Link</label>
-                    <input type="text" class="form-control mb-3" asp-for="Link" placeholder="Enter Link"> 
+                    <input type="text" class="form-control mb-3" asp-for="Link" placeholder="Enter Link">
                     <span asp-validation-for="Link" class=" alert-danger"></span>
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="MenuOrder">Thứ tự menu</label>
-                    <input type="text" class="form-control mb-3" asp-for="MenuOrder" placeholder="Enter MenuOrder" required> 
+                    <input type="text" class="form-control mb-3" asp-for="MenuOrder" placeholder="Enter MenuOrder" required>
                     <span asp-validation-for="MenuOrder" class=" alert-danger"></span>
                 </div>
                 <div class="form-group mt-3 mb-5">

@@ -18,7 +18,7 @@
                 <li class="nav-item">
                     <a href="/Home" class="nav-link menu-header shine-active" style="font-size: x-large;font-family: cursive;">HoyoGames Shop</a>
                 </li>
-                @foreach (var menu in Model.Where(m => m.Levels == 1).OrderBy(n => n.MenuOrder))
+                @foreach (var menu in Model.Where(m => m.ParentID == 0).OrderBy(n => n.MenuOrder))
                 {
                     var Pid = menu.MenuId;
                     var Smenu = Model.Where(p => p.ParentID == Pid).OrderBy(p => p.MenuId).ToList();
