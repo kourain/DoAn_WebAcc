@@ -30,7 +30,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             var check = _dataContext.AdminUsers.Where(m => (m.Email == user.Email) && (m.Password == pw)).FirstOrDefault();
             if (check == null)
             {
-                Functions._MessageEmail = "Invalid UserName or Password";
+                Functions._Message = "Invalid UserName or Password";
                 return RedirectToAction("Index", "Login");
             }
 

@@ -14,7 +14,6 @@ namespace DoAn_WebAcc.Utilities
         public static string _Name = string.Empty;
         public static string _UserName = string.Empty;
         public static string _Message = string.Empty;
-        public static string _MessageEmail = string.Empty;
         public static string _Email = string.Empty;
 
         public static string MD5Hash(string text)
