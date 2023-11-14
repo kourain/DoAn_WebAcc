@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Acc HI";
-    string accinf = $"https://act.hoyolab.com/app/community-game-records-sea/index.html?bbs_presentation_style=fullscreen&bbs_auth_required=true&gid=2&user_id={Model.HoyolabID}&utm_source=hoyolab&utm_medium=gamecard&bbs_theme=dark&bbs_theme_device=1#/hsr";
+    string accinf = $"https://act.hoyolab.com/app/community-game-records-sea/index.html?bbs_presentation_style=fullscreen&bbs_auth_required=true&gid=2&user_id={Model.HoyolabID}&utm_source=hoyolab&utm_medium=gamecard&bbs_theme=dark&bbs_theme_device=1#/bh3";
 }
 @model DoAn_WebAcc.Models.AccHI
 @using DoAn_WebAcc.Utilities;
@@ -63,7 +63,7 @@
         </div>
         <center>
             <div class="col-6">
-                <form method="post" action="https://shopgenshin247.com/star-rail/buy-acc-normal">
+                <form method="post" asp-controller="AccHI" asp-action="Buy">
                     <input type="hidden" name="UserID" value="@Functions._UserID">
                     <input name="UID" value="@Model.UID" hidden>
                     <button name="buy_acc" value="buy_acc" class="btn-pretty">
