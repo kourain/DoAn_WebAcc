@@ -59,6 +59,10 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
                 _Context.SaveChanges();
                 return RedirectToAction("Index");
             }
+            else
+            {
+                ViewBag.AccHSRCreate = $"UID: {mn.UID} đã tồn tại";
+            }
             return View();
         }
 

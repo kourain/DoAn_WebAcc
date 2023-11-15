@@ -12,6 +12,7 @@ namespace DoAn_WebAcc.Controllers
         }
         public IActionResult Index()
         {
+            Functions._Message = "";
             return View();
         }
         [HttpPost]
@@ -30,7 +31,7 @@ namespace DoAn_WebAcc.Controllers
             if (check != null)
             {
                 Functions._Message = "Duplicate Email";
-                return RedirectToAction("Index", "Register");
+                return View();
             }
             user.Username = user.Username.ToLower();
             user.Mail = user.Mail.ToLower();

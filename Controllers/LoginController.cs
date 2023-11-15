@@ -12,6 +12,7 @@ namespace DoAn_WebAcc.Controllers
         }
         public IActionResult Index()
         {
+            Functions._Message = "";
             return View();
         }
         [HttpPost]
@@ -28,7 +29,7 @@ namespace DoAn_WebAcc.Controllers
             if (check == null)
             {
                 Functions._Message = "Tên đăng nhập hoặc mật khẩu không chính xác";
-                return RedirectToAction("Index", "Login");
+                return View();
             }
 
             Functions._Message = string.Empty;

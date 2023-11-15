@@ -15,6 +15,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            Functions._Message = "";
             return View();
         }
         [HttpPost]
@@ -31,7 +32,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             if (check == null)
             {
                 Functions._Message = "Invalid UserName or Password";
-                return RedirectToAction("Index", "Login");
+                return View();
             }
 
             Functions._Message = string.Empty;

@@ -57,6 +57,12 @@
                     <input type="number" class="form-control mb-3" asp-for="Price" placeholder="Nhập giá bán" required>
                 </div>
             </div>
+            <div style="color:red">
+            @ViewBag.AccHICreate
+            </div>
+            @{
+                ViewBag.AccHICreate = "";
+            }
             <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Lưu</button> 
             <a asp-controller="AccHI" asp-action="Index" class="btn btn-lg btn-warning p-2">Quay lại</a>
         </form>
