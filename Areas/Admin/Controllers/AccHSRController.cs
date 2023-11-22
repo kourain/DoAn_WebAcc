@@ -57,6 +57,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             {
                 _Context.AccHSRs.Add(mn);
                 _Context.SaveChanges();
+                ViewBag.AccHSRCreate = "";
                 return RedirectToAction("Index");
             }
             else
