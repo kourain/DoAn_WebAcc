@@ -18,5 +18,6 @@ namespace DoAn_WebAcc.Models
         public int? Sold { get; set; }
         public int? HoyolabID { get; set; }
         public int? Price { get; set; }
+        public DateTime? SoldDate { get; set; }
     }
 }

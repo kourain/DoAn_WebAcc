@@ -1,11 +1,15 @@
 ﻿@using DoAn_WebAcc.Controllers;
-@model IList<AccGI>
+@model IList<AccHSR>
 @{
     ViewData["Title"] = "Home Page";
+    var price = Context.Request.Query["price"];
+    var sortprice = Context.Request.Query["sortprice"];
+    string? acc_server = Context.Request.Query["sortprice"];
+   
 }
 <center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon"></center>
 <h1 class="guide__title" style="margin-bottom: 72px;">
-    Danh sách tài khoản Genshin Impact
+    Danh sách tài khoản Honkai: Star Rail
 </h1>
 <div class="container-lg">
     <div class="row">
@@ -17,7 +21,7 @@
                 <p class="text-center small">
                     Bỏ trống tùy ý
                 </p>
-                <form method="get" asp-controller="AccGI" asp-action="Search">
+                <form method="get" asp-controller="AccHSR" asp-action="Search">
                     <div class="col-12 mt-3">
                         <label class="form-label">
                             Giá
@@ -82,7 +86,7 @@
             <div class="row">
                 @foreach (var acc in Model)
                 {
-                    string url = $"/AccGI/Acc-{acc.UID}";
+                    string url = $"/AccHSR/Acc-{acc.UID}";
                     <article class="col-md-6 col-lg-4">
                         <div class="genshin-product">
                             <div class="product-code">@acc.UID</div>
@@ -143,24 +147,25 @@
                 <nav>
                     <ul class="pagination">
                         @{
-                            int pagecount = AccGIController._List_pagenow;
-                            int maxpagecount = AccGIController._List_maxpage;
+                            int pagecount = AccHSRController._List_pagenow;
+                            int maxpagecount = AccHSRController._List_maxpage;
                             //pre page
                             int prepagecount = pagecount - 1;
                             if (prepagecount < 1) prepagecount = 1;
                             //next page
                             int nextpagecount = pagecount + 1;
                             if (nextpagecount > maxpagecount) nextpagecount = maxpagecount;
+                            string querystringnow = @Context.Request.QueryString.ToString();
+                            querystringnow = querystringnow.Split("&page=")[0] + "&page=";
                             <li class="page-item">
-                                <a class="page-link" href="/AccGI/page=@prepagecount" aria-label="&laquo; Previous">&lsaquo;</a>
+                                <a class="page-link" href="@querystringnow@prepagecount" aria-label="&laquo; Previous">&lsaquo;</a>
                             </li>
                             <li class="page-item">
                                 <a class="page-link"> @pagecount/@maxpagecount </a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link" href="/AccGI/page=@nextpagecount" aria-label="Next &raquo;">&rsaquo;</a>
+                                <a class="page-link" href="@querystringnow@nextpagecount" aria-label="Next &raquo;">&rsaquo;</a>
                             </li>
-
                         }
                     </ul>
                 </nav>

@@ -2,6 +2,10 @@
 @model IList<AccGI>
 @{
     ViewData["Title"] = "Home Page";
+    var price = Context.Request.Query["price"];
+    var sortprice = Context.Request.Query["sortprice"];
+    string? acc_server = Context.Request.Query["sortprice"];
+   
 }
 <center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon"></center>
 <h1 class="guide__title" style="margin-bottom: 72px;">
@@ -22,7 +26,7 @@
                         <label class="form-label">
                             Giá
                         </label>
-                        <select class="form-control" name="price">
+                        <select class="form-control" name="price" defaultValue="@price">
                             <option value="">
                                 Chọn giá
                             </option>
@@ -151,14 +155,16 @@
                             //next page
                             int nextpagecount = pagecount + 1;
                             if (nextpagecount > maxpagecount) nextpagecount = maxpagecount;
+                            string querystringnow = @Context.Request.QueryString.ToString();
+                            querystringnow = querystringnow.Split("&page=")[0] + "&page=";
                             <li class="page-item">
-                                <a class="page-link" href="/AccGI/page=@prepagecount" aria-label="&laquo; Previous">&lsaquo;</a>
+                                <a class="page-link" href="@querystringnow@prepagecount" aria-label="&laquo; Previous">&lsaquo;</a>
                             </li>
                             <li class="page-item">
                                 <a class="page-link"> @pagecount/@maxpagecount </a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link" href="/AccGI/page=@nextpagecount" aria-label="Next &raquo;">&rsaquo;</a>
+                                <a class="page-link" href="@querystringnow@nextpagecount" aria-label="Next &raquo;">&rsaquo;</a>
                             </li>
 
                         }

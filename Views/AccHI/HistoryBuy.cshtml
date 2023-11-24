@@ -4,3 +4,57 @@
 
     ViewData["Title"] = "Home Page";
 }
+<center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon"></center>
+<h1 class="guide__title" style="margin-bottom: 72px;">
+    Danh sách tài khoản Honkai Impact đã mua
+</h1>
+<div class="card offset-lg-0 col-lg-12">
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" data-order="[[6, &quot;desc&quot;]]" data-page-length="10" role="grid" aria-describedby="example1_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending">ID</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Tên đăng nhập: activate to sort column ascending">
+                                    Tên đăng nhập
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Mật khẩu: activate to sort column ascending">
+                                    Mật khẩu
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Giá: activate to sort column ascending">
+                                    Giá
+                                </th>
+                                <th class="sorting sorting_desc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="descending" aria-label="Mua lúc: activate to sort column ascending">
+                                    Mua lúc
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count == 0)
+                            {
+                                <tr class="odd"><td valign="top" colspan="7" class="dataTables_empty">Không có tài khoản nào</td></tr>
+                            }
+                            else
+                            {
+                                foreach (var item in Model.OrderBy(m => m.SoldDate))
+                                {
+                                <th class="text-center">@item.UID</th>
+                                <td class="text-primary">@item.Username </td>
+                                <td class="text-center">@item.Password</td>
+                                <td class="text-center">@item.Price</td>
+                                <td class="text-center">@item.SoldDate</td>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            @* <div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">Next</a></li></ul></div></div></div> *@
+        </div>
+    </div>
+    <!-- /.card-body -->
+</div>

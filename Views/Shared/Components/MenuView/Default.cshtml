@@ -65,7 +65,7 @@
         {
 
             <!-- Right navbar links -->
-            <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto" style="position: absolute;right: 0px;">
+            <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto" style="position: absolute;right: 20px;">
                 <li class="nav-item">
                     <a href="/Register">
                         <button class="btn-pretty">
@@ -84,23 +84,28 @@
         }
         else
         {
-            <!-- Right navbar links -->
-            <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto" style="position: absolute;right: 0px;">
+            <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto" style="position: absolute;right: 20px;">
                 <li class="nav-item">
-                    <a>
-                        <button class="btn-pretty">
-                            @Functions._Name
-                        </button>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/Home/Logout">
-                        <button class="btn-pretty">
-                            Đăng xuất
-                        </button>
-                    </a>
+                    <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-block btn-outline-warning font-weight-bold" style="background: rgb(89 84 173 / 25%);">
+                        <span class="text-light">[@Functions._UserID] @Functions._UserName</span>
+                    </span>
+                    <ul class="dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                        <li>
+                            <a href="/change-password" class="dropdown-item ">
+                                <i class="fas fa-key mr-1"></i> Đổi mật khẩu
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a href="/Logout" class="dropdown-item ">
+                                <i class="fa fa-dungeon mr-1"></i> Đăng xuất
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         }
     </div>
-</nav><!-- /.navbar -->
+</nav>
+
+<!-- /.navbar -->

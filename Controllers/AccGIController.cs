@@ -30,14 +30,80 @@ namespace DoAn_WebAcc.Controllers
             //reset max pagecount
             int count = _dataContext.AccGIs.Where(p => p.Sold == null || p.Sold == 0).Count();
             _List_maxpage = count / 12;
-            if ((_List_maxpage * 12) < count) { _List_maxpage = _List_maxpage + 1; }
+            if ((_List_maxpage * 12) < count) { _List_maxpage++; }
 
             var acc = _dataContext.AccGIs.Where(p => p.Sold == null || p.Sold == 0).Skip(12 * (page - 1)).Take(12).ToList();
             return View(acc);
         }
+        [HttpGet]
+        [Route("/AccGI/Search")]
+        public IActionResult Search([FromQuery] string? price, [FromQuery] string sort_price, [FromQuery] string? acc_server, [FromQuery] int? page)
+        {
+            if (price== null) { price = "0|999999999"; }
+            int min_price;
+            int max_price ;
+            try
+            {
+                min_price = int.Parse(price.Split('|')[0]);
+                max_price = int.Parse(price.Split('|')[1]);
+            }
+            catch (Exception ex)
+            {
+                min_price = 0;
+                max_price = 999999999;
+            }
+            var acc = _dataContext.AccGIs.Where(p => (p.Sold == null || p.Sold == 0) 
+                    &&p.Price>min_price 
+                    && p.Price<max_price );
+            if (sort_price == "desc")
+            {
+                acc = acc.OrderByDescending(p => p.Price);
+            }
+            else if (sort_price == "asc")
+            {
+                acc = acc.OrderBy(p => p.Price);
+            }    
+            if (acc_server != null)
+            {
+                acc = acc.Where(p => p.Server == acc_server);
+            }
+            _List_pagenow = page.GetValueOrDefault(1);
+            //reset max pagecount
+            int count = acc.Count();
+            _List_maxpage = count / 12;
+            if ((_List_maxpage * 12) < count) { _List_maxpage++; }
+            return View(acc.Skip(12 * (_List_pagenow - 1)).Take(12).ToList());
+        }
+
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Buy(AccGI acc)
+        {
+            var accbuy = _dataContext.AccGIs.Where(m => m.UID == acc.UID && (m.Sold == null || m.Sold == 0)).FirstOrDefault();
+            if (accbuy != null)
+            {
+                accbuy.SoldDate = DateTime.Now;
+                accbuy.Sold = Functions._UserID;
+                _dataContext.AccGIs.Update(accbuy);
+                _dataContext.SaveChanges();
+                return RedirectToAction("HistoryBuy");
+            }
+            return RedirectToAction("AccGI_Acc", acc.UID);
+        }
+        [Route("/AccGI/HistoryBuy")]
+        public IActionResult HistoryBuy()
+        {
+            if (!Functions.IsLogin())
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            var acc = _dataContext.AccGIs.Where(m => (m.Sold == Functions._UserID)).ToList();
+            return View(acc);
         }
         [Route("/AccGI/Acc-{id:int}")]
         public IActionResult AccGI_Acc(int? id)
@@ -45,7 +111,6 @@ namespace DoAn_WebAcc.Controllers
             if (id == null)
             {
                 return NotFound();
-
             }
             var acc = _dataContext.AccGIs.FirstOrDefault(m => (m.UID == id));
             if (acc == null)
