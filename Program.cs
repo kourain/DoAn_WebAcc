@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews(); 
-var connection = String.Empty;
+var connection = "";
 if (builder.Environment.IsDevelopment())
 {
     builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
@@ -14,9 +14,9 @@ else
 {
     connection = Environment.GetEnvironmentVariable("CONNECTIONSTRING");
 }
-
+string nowpath =  Directory.GetCurrentDirectory();
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(connection));
+    options.UseSqlServer(connection.Replace(@"nowpath", nowpath)));
 
 var app = builder.Build();
 

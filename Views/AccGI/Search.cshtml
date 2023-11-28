@@ -3,9 +3,8 @@
 @{
     ViewData["Title"] = "Home Page";
     var price = Context.Request.Query["price"];
-    var sortprice = Context.Request.Query["sortprice"];
-    string? acc_server = Context.Request.Query["sortprice"];
-   
+    var sort_price = Context.Request.Query["sort_price"];
+    string? acc_server = Context.Request.Query["acc_server"];
 }
 <center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon"></center>
 <h1 class="guide__title" style="margin-bottom: 72px;">
@@ -26,26 +25,27 @@
                         <label class="form-label">
                             Giá
                         </label>
-                        <select class="form-control" name="price" defaultValue="@price">
+                        <select class="form-control" name="price">
                             <option value="">
                                 Chọn giá
                             </option>
-                            <option value="1|10000">
-                                10k trở xuống
+                            @Html.Raw(@"
+                            <option value=""1|10000"">
+                            10k trở xuống
                             </option>
-                            <option value="10000|50000">10K - 50K</option>
-                            <option value="50000|100000">50K - 100K</option>
-                            <option value="100000|200000">100K - 200K</option>
-                            <option value="200000|300000">200K - 300K</option>
-                            <option value="300000|400000">300K - 400K</option>
-                            <option value="400000|500000">400K - 500K</option>
-                            <option value="500000|800000">500K - 800K</option>
-                            <option value="800000|1000000">800K - 1tr</option>
-                            <option value="1000000|5000000">1tr - 5tr</option>
-                            <option value="5000000|999999999">
-                                Trên
-                                5tr
-                            </option>
+                            <option value=""10000|50000"">10K - 50K</option>
+                            <option value=""50000|100000"">50K - 100K</option>
+                            <option value=""100000|200000"">100K - 200K</option>
+                            <option value=""200000|300000"">200K - 300K</option>
+                            <option value=""300000|400000"">300K - 400K</option>
+                            <option value=""400000|500000"">400K - 500K</option>
+                            <option value=""500000|800000"">500K - 800K</option>
+                            <option value=""800000|1000000"">800K - 1tr</option>
+                            <option value=""1000000|5000000"">1tr - 5tr</option>
+                            <option value=""5000000|999999999"">
+                            Trên
+                            5tr
+                            </ option > ".Replace($@"value=""{price}"">", $@"value=""{price}"" selected>"))
                         </select>
                     </div>
                     <div class="row">
@@ -54,22 +54,22 @@
                                 Sắp xếp giá
                             </label>
                             <select class="form-control" name="sort_price">
-                                <option value="asc">
+                                @Html.Raw(@"<option value=""asc"">
                                     Tăng dần
                                 </option>
-                                <option value="desc">
+                                <option value=""desc"">
                                     Giảm dần
-                                </option>
+                                </option>".Replace($@"value=""{sort_price}"">", $@"value=""{sort_price}"" selected>"))
                             </select>
                         </div>
                         <div class="col-6 mt-3">
                             <label class="form-label">Server</label>
                             <select class="form-control" name="acc_server">
                                 <option value="">Chọn Server</option>
-                                <option value="asia">ASIA</option>
-                                <option value="america">AMERICA</option>
-                                <option value="europe">EUROPE</option>
-                                <option value="tw,hk,mo">TW, HK, MO</option>
+                                @Html.Raw(@"<option value=""asia"">ASIA</option>
+                                <option value=""america"">AMERICA</option>
+                                <option value=""europe"">EUROPE</option>
+                                <option value=""tw,hk,mo"">TW, HK, MO</option>".Replace($@"value=""{acc_server}"">", $@"value=""{acc_server}"" selected>")))
                             </select>
                         </div>
                     </div>

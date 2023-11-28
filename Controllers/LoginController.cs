@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DoAn_WebAcc.Models;
 using DoAn_WebAcc.Utilities;
+using Microsoft.AspNetCore.Hosting.Server;
+using System;
+
 namespace DoAn_WebAcc.Controllers
 {
     public class LoginController : Controller
@@ -36,8 +39,7 @@ namespace DoAn_WebAcc.Controllers
             Functions._UserID = check.Id;
             Functions._UserName = string.IsNullOrEmpty(check.Username) ? string.Empty : check.Username;
             Functions._Name = string.IsNullOrEmpty(check.Name) ? string.Empty : check.Name;
-            return RedirectToAction("Index", "Home");
-
+            return RedirectToAction("Index", "Home"); 
         }
     }
 }
