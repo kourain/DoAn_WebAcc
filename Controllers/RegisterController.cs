@@ -6,10 +6,12 @@ namespace DoAn_WebAcc.Controllers
     public class RegisterController : Controller
     {
         private readonly DataContext _dataContext;
+        private string returnUrl = "";
         public RegisterController(DataContext dataContext)
         {
             _dataContext = dataContext;
         }
+        [HttpGet]
         public IActionResult Index()
         {
             Functions._Message = "";
@@ -18,11 +20,7 @@ namespace DoAn_WebAcc.Controllers
         [HttpPost]
         public IActionResult Index(User user)
         {
-            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.Mail))
-            {
-                return NotFound();
-            }
-
+            this.returnUrl = Request.Form["returnUrl"];
             if (user == null)
             {
                 return NotFound();
@@ -30,7 +28,15 @@ namespace DoAn_WebAcc.Controllers
             var check = _dataContext.Users.Where(m => m.Mail == user.Mail).FirstOrDefault();
             if (check != null)
             {
-                Functions._Message = "Duplicate Email";
+                Functions._Message = "Email này đã được sử dụng";
+                ViewBag.returnUrl = returnUrl;
+                return View();
+            }
+            check = _dataContext.Users.Where(m => m.Phone == user.Phone).FirstOrDefault();
+            if (check != null)
+            {
+                Functions._Message = "Số điện thoại này đã được sử dụng";
+                ViewBag.returnUrl = returnUrl;
                 return View();
             }
             user.Username = user.Username.ToLower();
@@ -47,8 +53,12 @@ namespace DoAn_WebAcc.Controllers
             catch { usid = 0; };
             user.Id = usid + 1;
             _dataContext.Add(user);
-            _dataContext.SaveChanges();
-            return RedirectToAction("Index", "Login");
+            _dataContext.SaveChanges(); 
+            if (string.IsNullOrEmpty(this.returnUrl))
+            {
+                this.returnUrl = "/Home";
+            }
+            return RedirectToAction("Index", "Login", new { returnUrl, user.Username });
         }
     }
 }

@@ -46,7 +46,7 @@ namespace DoAn_WebAcc.Controllers
                 min_price = int.Parse(price.Split('|')[0]);
                 max_price = int.Parse(price.Split('|')[1]);
             }
-            catch (Exception ex)
+            catch
             {
                 min_price = 0;
                 max_price = 999999999;
@@ -94,8 +94,7 @@ namespace DoAn_WebAcc.Controllers
         {
             if (!Functions.IsLogin())
             {
-                return RedirectToAction("Index", "Login");
-
+                return Redirect("/Login?returnUrl=/AccHSR/HistoryBuy");
             }
             var acc = _dataContext.AccHSRs.Where(m => (m.Sold == Functions._UserID)).ToList();
             return View(acc);

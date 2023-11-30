@@ -1,0 +1,55 @@
+﻿@using DoAn_WebAcc.Models;
+@model IList<User>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách User</h2>
+    </div>
+
+    <section class="section dashboard">
+        <div class="row">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                    <div class="card-body mt-4"></div>
+                    <table class="table table-borderless datatable">
+                        <thead>
+                            <tr>
+                                <th class="col-1 text-center">#</th>
+                                <th class="col-3 text-center">Tên hiển thị</th>
+                                <td class="col-1 text-center">Tên người dùng</td>
+                                <td class="col-1 text-center">Trạng thái cấm</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">@item.Id</td>
+                                    <td class="text-primary">@item.Name</td>
+                                    <td class="text-center">@item.Username</td>
+                                    <td class="text-center">@item.Ban</td>
+
+                                    <td class="text-center">
+                                        <a asp-area="Admin" asp-controller="User" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm" title="Sửa">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" title="Xoá">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+</main>

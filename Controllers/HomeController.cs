@@ -14,7 +14,6 @@ namespace DoAn_WebAcc.Controllers
         {
             _logger = logger;
             _dataContext = context;
-
         }
 
         public IActionResult Index()
@@ -26,7 +25,8 @@ namespace DoAn_WebAcc.Controllers
         {
             return View();
         }
-        public IActionResult Logout()
+        [Route("/Logout")]
+        public ActionResult Logout()
         {
             Functions._UserID = 0;
             Functions._Name = string.Empty;

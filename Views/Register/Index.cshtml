@@ -1,5 +1,12 @@
 ﻿@using DoAn_WebAcc.Utilities;
 @model DoAn_WebAcc.Models.User;
+@{
+    string returnUrl = Context.Request.Query["returnUrl"];
+    if (string.IsNullOrEmpty(returnUrl))
+    {
+        returnUrl = ViewBag.returnUrl;
+    }
+}
 <center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon"></center>
 <h1 class="guide__title" style="margin-bottom: 72px;"></h1>
 <div class="container">
@@ -8,7 +15,8 @@
             <div class="card">
                 <div class="card-header">Register HoyoGameShop</div>
                 <div class="card-body">
-                    <form asp-controller="Register" asp-action="Index">
+                    <form method="post" asp-controller="Register" asp-action="Index">
+                        <input type="text" name="returnUrl" value="@returnUrl" hidden />
                         <div class="form-group row">
                             <label for="full_name" class="col-md-4 col-form-label text-md-right">
                                 Họ và tên
@@ -83,7 +91,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Đăng ký
                                 </button>
-                                <a href="/login" class="btn btn-light">
+                                <a href="/login?returnUrl=@returnUrl" class="btn btn-light">
                                     Đăng nhập
                                 </a>
                             </div>
