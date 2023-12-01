@@ -137,7 +137,8 @@ CREATE TABLE [dbo].[User](
 	[username] [nchar](50) NOT NULL,
 	[Phone] [nchar](15) NULL,
 	[Mail] [nchar](50) NULL,
-	[Password] [nchar](32) NOT NULL
+	[Password] [nchar](32) NOT NULL,
+	[BN] [BIT] NULL,
 ) ON [PRIMARY]
 GO
 INSERT [dbo].[AdminMenu] ([AdminMenuID], [ItemName], [ItemLevel], [ParentLevel], [ItemOrder], [IsActive], [ItemTarget], [AreaName], [ControllerName], [ActionName], [Icon], [IdName]) VALUES (1, N'Bảng điều khiển', 0, 0, 1, 0, NULL, N'Admin', N'Home', N'Index', NULL, NULL)
