@@ -6,6 +6,7 @@ namespace DoAn_WebAcc.Models
     [Table("User")]
     public class User
     {
+        public User() { CreateDate = DateTime.Now; }
         [Key]
         public int Id { get; set; }
         public string? Name { get; set; }
@@ -14,5 +15,6 @@ namespace DoAn_WebAcc.Models
         public string? Mail { get; set; }
         public string Password { get; set; }
         public bool? Ban { get; set; }
+        public DateTime? CreateDate { get; set; }
     }
 }

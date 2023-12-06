@@ -20,7 +20,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             var mnlist = _Context.Users.OrderBy(m => m.Id).ToList();
             return View(mnlist);
         }
-        public IActionResult Delete(int? id)
+        public IActionResult Ban(int? id)
         {
             if (id == null || id == 0)
             {
@@ -42,35 +42,14 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            _Context.Users.Remove(deleUser);
+            deleUser.Ban = true;
+            _Context.Users.Update(deleUser);
             _Context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public IActionResult Create()
         {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(User mn)
-        {
-            if (ModelState.IsValid)
-            {
-                //lấy max Id có sẵn trong bảng csdl
-                int Id = 0;
-                try
-                {
-                    Id = (from p in _Context.Users
-                          orderby p.Id descending
-                          select p.Id).Take(1).ToList()[0];
-                }
-                catch { Id = 0; };
-                mn.Id = Id + 1;
-                _Context.Users.Add(mn);
-                _Context.SaveChanges();
-                return RedirectToAction("Index");
-            }
             return View();
         }
 
