@@ -53,7 +53,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult ResetPassWord(int? id)
         {
             if (id == null || id == 0)
             {
@@ -68,7 +68,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(User mn)
+        public IActionResult ResetPassWord(User mn)
         {
             if (ModelState.IsValid)
             {

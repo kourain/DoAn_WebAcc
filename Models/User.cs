@@ -15,6 +15,6 @@ namespace DoAn_WebAcc.Models
         public string? Mail { get; set; }
         public string Password { get; set; }
         public bool? Ban { get; set; }
-        public DateTime? CreateDate { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

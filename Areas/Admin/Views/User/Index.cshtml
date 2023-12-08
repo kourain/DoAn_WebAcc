@@ -35,15 +35,14 @@
                                     <td class="text-center">@item.Name</td>
                                     <td class="text-center">@item.Username</td>
                                     <td class="text-center">@item.Mail</td>
-                                    <td class="text-center">@item.CreateDate.Value.ToString("hh:mm:ss dd/MM/yyyy")</td>
+                                    <td class="text-center">@item.CreateDate.ToString("hh:mm:ss dd/MM/yyyy")</td>
                                     <td class="text-center">@item.Ban</td>
-
                                     <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="User" asp-action="ResetPassWord" asp-route-id="@item.Id" class="btn btn-primary btn-sm" title="Sửa">
-                                            <i class="bi bi-pencil"></i>
+                                        <a asp-area="Admin" asp-controller="User" asp-action="ResetPassWord" asp-route-id="@item.Id" title="Đặt lại mật khẩu cho người dùng này" style="width:30px; height:30px">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/11135/11135322.png" style="width:30px; height:30px" />
                                         </a>
-                                        <a asp-area="Admin" asp-controller="User" asp-action="Ban" asp-route-id="@item.Id" class="btn btn-danger btn-sm" title="Xoá">
-                                            <i class="bi bi-trash"></i>
+                                        <a asp-area="Admin" asp-controller="User" asp-action="Ban" asp-route-id="@item.Id" title="Cấm người dùng này">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/6380/6380092.png " style="width:30px; height:30px" />
                                         </a>
                                     </td>
                                 </tr>
