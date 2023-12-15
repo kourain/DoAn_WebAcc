@@ -21,7 +21,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             var mnlist = _Context.AdminMenus.OrderBy(m => m.AdminMenuId).ToList();
             return View(mnlist);
         }
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(long? id)
         {
             if (id == null || id == 0)
             {
@@ -35,7 +35,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             return View(mn);
         }
         [HttpPost]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(long id)
         {
             var deleAdminMenu = _Context.AdminMenus.Find(id);
             if (deleAdminMenu == null)
@@ -87,7 +87,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(long? id)
         {
             if (id == null || id == 0)
             {

@@ -7,6 +7,7 @@ namespace DoAn_WebAcc.Areas.Admin.Models
     public class AdminMenu
 
     {
+        public AdminMenu() { ItemLevel = 1; }  
         [Key]
         public long AdminMenuId { get; set; }
         public string? ItemName { get; set; }
