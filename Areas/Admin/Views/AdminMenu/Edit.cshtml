@@ -15,19 +15,18 @@
         <form method="post" asp-action="Edit">
             <div asp-validation-summary="All"></div>
             <div class="form-row">
-                <input type="text" class="form-control mb-3" asp-for="ItemName" type="hidden">
+                <input type="text" class="form-control mb-3" asp-for="AdminMenuId" type="hidden">
                 <div class="form-group col-md-6">
                     <label asp-for="ItemName">ItemName</label>
-                    <input type="text" class="form-control mb-3" asp-for="ItemName" placeholder="Nhập tên menu">
+                    <input type="text" class="form-control mb-3" asp-for="ItemName" placeholder="Nhập tên menu" required>
                     <span asp-validation-for="ItemName" class=" alert-danger"></span>
                 </div>
-
                 <div class="form-group col-md-6">
                     <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
-                    <label asp-for="ParentLevel">ParentLevel</label>
+                    <label asp-for="ParentLevel">Chọn menu cha</label>
                     <select asp-for="ParentLevel"
                             class="form-control"
-                            asp-items="@(new SelectList(ViewBag.mnList, "Value", "Text"))">
+                            asp-items="@(new SelectList (ViewBag.mnList, "Value", "Text"))">
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -42,8 +41,18 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="ItemOrder">Thứ tự menu</label>
-                    <input type="text" class="form-control mb-3" asp-for="ItemOrder" placeholder="Enter ItemOrder" required>
+                    <input type="number" class="form-control mb-3" asp-for="ItemOrder" placeholder="Nhập MenuOrder" value="ItemOrder" required>
                     <span asp-validation-for="ItemOrder" class=" alert-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Icon">Icon</label>
+                    <input type="text" class="form-control mb-3" asp-for="Icon" placeholder="Nhập Icon">
+                    <span asp-validation-for="Icon" class=" alert-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="ItemDropDown">ItemDropDown</label>
+                    <input type="text" class="form-control mb-3" asp-for="ItemDropDown" placeholder="Nhập ItemDropDown">
+                    <span asp-validation-for="ItemDropDown" class=" alert-danger"></span>
                 </div>
                 <div class="form-group mt-3 mb-5">
                     <label>

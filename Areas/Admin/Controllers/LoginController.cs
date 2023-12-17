@@ -15,6 +15,8 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            if (Functions.IsLogin())
+                return Redirect("/Admin");
             Functions._Message = "";
             return View();
         }

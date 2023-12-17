@@ -25,8 +25,13 @@
 
                     @if (Smenu.Count == 0)
                     {
+                        var linkstr = $"/{menu.ControllerName}/{menu.ActionName}";
+                        if (linkstr == "//")
+                        {
+                            linkstr = menu.Link;
+                        }
                         <li class="nav-item">
-                            <a href="/@menu.ControllerName/@menu.ActionName" class="nav-link menu-header">
+                            <a href="@linkstr" class="nav-link menu-header">
                                 @menu.MenuName
                             </a>
                         </li>

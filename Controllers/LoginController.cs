@@ -18,6 +18,8 @@ namespace DoAn_WebAcc.Controllers
         [HttpGet]
         public IActionResult Index([FromQuery] string returnUrl,string? username = null)
         {
+            if(Functions.IsLogin()) 
+                return Redirect("/Home");
             this.returnUrl = returnUrl;
             if (username != null)
             {

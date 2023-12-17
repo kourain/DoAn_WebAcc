@@ -6,7 +6,7 @@ namespace DoAn_WebAcc.Controllers
     public class RegisterController : Controller
     {
         private readonly DataContext _dataContext;
-        private string returnUrl = "";
+        private string? returnUrl = "";
         public RegisterController(DataContext dataContext)
         {
             _dataContext = dataContext;
@@ -14,10 +14,13 @@ namespace DoAn_WebAcc.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            if (Functions.IsLogin())
+                return Redirect("/Home");
             Functions._Message = "";
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Index(User user)
         {
             this.returnUrl = Request.Form["returnUrl"];
