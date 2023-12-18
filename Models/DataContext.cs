@@ -6,8 +6,6 @@ namespace DoAn_WebAcc.Models
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
-
-        
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Footer> Footers { get; set; }
         public DbSet<AccHI> AccHIs { get; set; }
@@ -16,7 +14,5 @@ namespace DoAn_WebAcc.Models
         public DbSet<AdminMenu> AdminMenus { get; set; }
         public DbSet<AdminUser> AdminUsers { get; set; }
         public DbSet<User> Users { get; set; }
-
     }
-
 }

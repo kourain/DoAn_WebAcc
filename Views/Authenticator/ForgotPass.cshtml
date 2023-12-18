@@ -1,0 +1,57 @@
+﻿@using DoAn_WebAcc.Utilities;
+@model DoAn_WebAcc.Models.User;
+@{
+    string returnUrl = Context.Request.Query["returnUrl"];
+    if (string.IsNullOrEmpty(returnUrl))
+    {
+        returnUrl = ViewBag.returnUrl;
+    }
+}<div class="container-fluid">
+    <center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon"></center>
+    <h1 class="guide__title" style="margin-bottom: 72px;"></h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Quên mật khẩu
+                    </div>
+
+                    <div class="card-body">
+
+                        <form method="POST" asp-action="ForgotPass">
+                            <div class="form-group row">
+                                <label for="Username" class="col-md-4 col-form-label text-md-right">
+                                    Tên đăng nhập
+                                </label>
+                                <div class="col-md-6">
+                                    <input id="Username" type="text" class="form-control " asp-for="Username" value="" required autocomplete="Username" autofocus="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Mail" class="col-md-4 col-form-label text-md-right">
+                                    Địa chỉ Mail
+                                </label>
+                                <div class="col-md-6">
+                                    <input id="Mail" type="email" class="form-control " asp-for="Mail" value="" required autocomplete="email" autofocus="">
+                                </div>
+                            </div>
+                            <div class="col-12 text-center text-danger">
+                                <h6>
+                                    @Functions._Message
+                                </h6>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Gửi mật khẩu mới
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

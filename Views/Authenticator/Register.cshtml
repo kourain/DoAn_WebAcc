@@ -1,0 +1,104 @@
+﻿@using DoAn_WebAcc.Utilities;
+@model DoAn_WebAcc.Models.User;
+@{
+    string returnUrl = Context.Request.Query["returnUrl"];
+    if (string.IsNullOrEmpty(returnUrl))
+    {
+        returnUrl = ViewBag.returnUrl;
+    }
+}
+<center><img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon"></center>
+<h1 class="guide__title" style="margin-bottom: 72px;"></h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Register HoyoGameShop</div>
+                <div class="card-body">
+                    <form method="post" asp-action="Register">
+                        <input type="text" name="returnUrl" value="@returnUrl" hidden />
+                        <div class="form-group row">
+                            <label for="full_name" class="col-md-4 col-form-label text-md-right">
+                                Họ và tên
+                            </label>
+                            <div class="col-md-6">
+                                <input type="text" asp-for="Name" class="form-control" id="full_name" required placeholder="Tên này công khai, người khác có thể thấy" autocomplete="name" autofocus>
+                                <div class="invalid-feedback">Vui lòng nhập tên</div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="login_name" class="col-md-4 col-form-label text-md-right">
+                                Tên đăng nhập
+                            </label>
+
+                            <div class="col-md-6">
+                                <input asp-for="Username" class="form-control " id="login_name" required autocomplete="name" autofocus placeholder="Giữ bí mật, không điền giống bên trên">
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">
+                                Số điện thoại
+                            </label>
+
+                            <div class="col-md-6">
+                                <input asp-for="Phone" type="number" id="phone" class="form-control " required placeholder="Chính xác để lấy lại mật khẩu nếu quên">
+
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">
+                                Địa chỉ email
+                            </label>
+                            <div class="col-md-6">
+                                <input asp-for="Mail" type="email" id="email" class="form-control" required placeholder="Chính xác để lấy lại mật khẩu nếu quên" autocomplete="email">
+                                
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">
+                                Mật khẩu
+                            </label>
+
+                            <div class="col-md-6">
+                                <input asp-for="Password" id="password" name="password" type="password" class="form-control " pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Password" required>
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password_two" class="col-md-4 col-form-label text-md-right">
+                                Xác nhận mật khẩu
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" class="form-control " onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" placeholder="Verify Password" required>
+                                <div class="invalid-feedback">Vui lòng nhập</div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center text-danger">
+                            <h6>
+                                @Functions._Message
+                            </h6>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Đăng ký
+                                </button>
+                                <a href="/login?returnUrl=@returnUrl" class="btn btn-light">
+                                    Đăng nhập
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

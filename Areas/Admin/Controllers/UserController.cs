@@ -48,7 +48,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Create()
+        public IActionResult ResetPassWord()
         {
             return View();
         }

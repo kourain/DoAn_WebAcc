@@ -68,15 +68,15 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         public IActionResult Create(Menu mn)
         {
             //lấy max footerid có sẵn trong bảng csdl
-            int Menuid = 0;
-            try
-            {
-                Menuid = (from p in _Context.Menus
-                        orderby p.MenuId descending
-                        select p.MenuId).Take(1).ToList()[0];
-            }
-            catch { Menuid = 0; };
-            mn.MenuId = Menuid + 1;
+            //int Menuid = 0;
+            //try
+            //{
+            //    Menuid = (from p in _Context.Menus
+            //            orderby p.MenuId descending
+            //            select p.MenuId).Take(1).ToList()[0];
+            //}
+            //catch { Menuid = 0; };
+            //mn.MenuId = Menuid + 1;
             if (ModelState.IsValid)
             {
                 _Context.Menus.Add(mn);
