@@ -32,7 +32,6 @@ namespace DoAn_WebAcc.Controllers
             this.returnUrl = returnUrl;
             if (username != null)
             {
-                Functions._Message = "Vui lòng điền lại thông tin";
                 Models.User view = new User();
                 view.Username = username;
                 return View(view);
@@ -53,11 +52,16 @@ namespace DoAn_WebAcc.Controllers
             var check = _dataContext.Users.Where(m => (m.Username == user.Username) && (m.Password == pw)).FirstOrDefault();
             if (check == null)
             {
-                Functions._Message = "Tên đăng nhập hoặc mật khẩu không chính xác";
+                Functions._Message = "Vui lòng điền lại thông tin";
                 return RedirectToAction("Index","Login",new { returnUrl, user.Username});
             }
+            if (check.Ban == true)
+            {
+                Functions._Message = "Tài khoản này đã bị cấm, vui lòng sử dụng 1 tài khoản khác";
+                return RedirectToAction("Index", "Login", new { returnUrl, user.Username });
+            }
             Functions._Message = string.Empty;
-            Functions._UserID = check.Id;
+            Functions._UserID = check.UserId;
             Functions._UserName = string.IsNullOrEmpty(check.Username) ? string.Empty : check.Username;
             Functions._Name = string.IsNullOrEmpty(check.Name) ? string.Empty : check.Name;
             if (string.IsNullOrEmpty(this.returnUrl))
@@ -84,7 +88,7 @@ namespace DoAn_WebAcc.Controllers
             {
                 return NotFound();
             }
-            var check = _dataContext.Users.Where(m => m.Mail == user.Mail).FirstOrDefault();
+            var check = _dataContext.Users.Where(m => m.Email == user.Email).FirstOrDefault();
             if (check != null)
             {
                 Functions._Message = "Email này đã được sử dụng";
@@ -99,7 +103,7 @@ namespace DoAn_WebAcc.Controllers
                 return View();
             }
             user.Username = user.Username.ToLower();
-            user.Mail = user.Mail.ToLower();
+            user.Email = user.Email.ToLower();
             Functions._Message = string.Empty;
             user.Password = Functions.MD5Password(user.Password);
             //int usid = 0;
@@ -131,11 +135,11 @@ namespace DoAn_WebAcc.Controllers
         [HttpPost]
         public ActionResult ForgotPass(User user)
         {
-            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Mail))
+            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Email))
             {
                 return NotFound();
             }
-            var check = _dataContext.Users.Where(m => (m.Username == user.Username) && (m.Mail == user.Mail)).FirstOrDefault();
+            var check = _dataContext.Users.Where(m => (m.Username == user.Username) && (m.Email == user.Email)).FirstOrDefault();
             if (check == null)
             {
                 Functions._Message = "Tên đăng nhập hoặc mật khẩu không chính xác";

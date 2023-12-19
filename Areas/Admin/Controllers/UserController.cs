@@ -17,7 +17,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         public IActionResult Index()
         {
 
-            var mnlist = _Context.Users.OrderBy(m => m.Id).ToList();
+            var mnlist = _Context.Users.OrderBy(m => m.UserId).ToList();
             return View(mnlist);
         }
         public IActionResult Ban(int? id)
