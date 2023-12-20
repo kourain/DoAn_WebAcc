@@ -49,7 +49,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             }
 
             Functions._Message = string.Empty;
-            Functions._UserID = check.UserID;
+            Functions._UserID = check.AdminUserID;
             Functions._UserName = string.IsNullOrEmpty(check.UserName) ? string.Empty : check.UserName;
             Functions._Email = string.IsNullOrEmpty(check.Email) ? string.Empty : check.Email;
 

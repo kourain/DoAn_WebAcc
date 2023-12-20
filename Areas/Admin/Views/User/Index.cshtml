@@ -12,49 +12,46 @@
         <div class="row">
             <div class="col-12">
                 <div class="card recent-sales overflow-auto">
-                    <div class="card-body mt-4"></div>
-                    <table class="table table-borderless datatable">
-                        <thead>
-                            <tr>
-                                <th class="col-1 text-center">#</th>
-                                <th class="col-3 text-center">Tên hiển thị</th>
-                                <td class="col-1 text-center">Tên người dùng</td>
-                                <td class="col-1 text-center">Email</td>
-                                <td class="col-1 text-center">Ngày tạo</td>
-                                <td class="col-1 text-center">Trạng thái cấm</td>
-                                <td class="col-2 text-center">Chức năng</td>
-
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
+                    <div class="card-body mt-4">
+                        <table class="table table-borderless datatable">
+                            <thead>
                                 <tr>
-                                    <td class="text-center">@item.UserId</td>
-                                    <td class="text-center">@item.Name</td>
-                                    <td class="text-center">@item.Username</td>
-                                    <td class="text-center">@item.Email</td>
-                                    <td class="text-center">@item.CreateDate.ToString("hh:mm:ss dd/MM/yyyy")</td>
-                                    <td class="text-center">@item.Ban</td>
-                                    <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="User" asp-action="ResetPassWord" asp-route-id="@item.UserId" title="Đặt lại mật khẩu cho người dùng này" style="width:30px; height:30px">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/11135/11135322.png" style="width:30px; height:30px" />
-                                        </a>
-                                        <a asp-area="Admin" asp-controller="User" asp-action="Ban" asp-route-id="@item.UserId" title="Cấm người dùng này">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/6380/6380092.png " style="width:30px; height:30px" />
-                                        </a>
-                                    </td>
+                                    <th class="col-1 text-center">#</th>
+                                    <th class="col-3 text-center">Tên hiển thị</th>
+                                    <th class="col-1 text-center">Tên người dùng</th>
+                                    <th class="col-1 text-center">Email</th>
+                                    <th class="col-1 text-center">Ngày tạo</th>
+                                    <th class="col-1 text-center">Trạng thái cấm</th>
+                                    <th class="col-2 text-center">Chức năng</th>
+
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
 
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th class="text-center">@item.UserId</th>
+                                        <th class="text-center">@item.Name</th>
+                                        <th class="text-center">@item.Username</th>
+                                        <th class="text-center">@item.Email</th>
+                                        <th class="text-center">@item.CreateDate.ToString("hh:mm:ss dd/MM/yyyy")</th>
+                                        <th class="text-center">@item.Ban</th>
+                                        <th class="text-center">
+                                            <a asp-area="Admin" asp-controller="User" asp-action="ResetPassWord" asp-route-id="@item.UserId" title="Đặt lại mật khẩu cho người dùng này" style="width:30px; height:30px">
+                                                <img src="https://cdn-icons-png.flaticon.com/512/11135/11135322.png" style="width:30px; height:30px" />
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="User" asp-action="Ban" asp-route-id="@item.UserId" title="Cấm người dùng này">
+                                                <img src="https://cdn-icons-png.flaticon.com/512/6380/6380092.png " style="width:30px; height:30px" />
+                                            </a>
+                                        </th>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
             </div>
-
         </div>
-
     </section>
 </main>

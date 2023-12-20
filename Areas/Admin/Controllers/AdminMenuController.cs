@@ -21,7 +21,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             var mnlist = _Context.AdminMenus.OrderBy(m => m.AdminMenuId).ToList();
             return View(mnlist);
         }
-        public IActionResult Delete(long? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null || id == 0)
             {
@@ -35,7 +35,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             return View(mn);
         }
         [HttpPost]
-        public IActionResult Delete(long id)
+        public IActionResult Delete(int id)
         {
             var deleAdminMenu = _Context.AdminMenus.Find(id);
             if (deleAdminMenu == null)
@@ -69,7 +69,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         public IActionResult Create(AdminMenu mn)
         {
             //lấy max footerid có sẵn trong bảng csdl
-            //long AdminMenuid = 0;
+            //int AdminMenuid = 0;
             //try
             //{
             //    AdminMenuid = (from p in _Context.AdminMenus
@@ -87,7 +87,7 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Edit(long? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null || id == 0)
             {

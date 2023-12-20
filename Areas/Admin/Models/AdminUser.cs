@@ -7,7 +7,7 @@ namespace DoAn_WebAcc.Areas.Admin.Models
 	{
 		[Key]
        
-        public int UserID { get; set; }
+        public int AdminUserID { get; set; }
 		public string? UserName { get; set; }
 		public string? Password { get; set; }
 		public string? Email { get; set; }

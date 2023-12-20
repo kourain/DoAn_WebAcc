@@ -1,66 +1,67 @@
 ﻿@using DoAn_WebAcc.Models;
 @model IList<AccGI>
 @{
-	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 <main id="main" class="main">
-	<div class="pagetitle">
-		<h2>Danh sách tài khoản</h2>
-	</div>
+    <div class="pagetitle">
+        <h2>Danh sách tài khoản</h2>
+    </div>
 
-	<p>
-		<a type="button" class="btn btn-success" asp-area="Admin" asp-controller="AccGI" asp-action="Create">
-			<i class="bi bi-file-earmark-text me-1">
-				Thêm tài khoản
-			</i>
-		</a>
-	</p>
+    <p>
+        <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="AccGI" asp-action="Create">
+            <i class="bi bi-file-earmark-text me-1">
+                Thêm tài khoản
+            </i>
+        </a>
+    </p>
 
-	<section class="section dashboard">
-		<div class="row">
-			<div class="col-12">
-				<div class="card recent-sales overflow-auto">
-					<div class="card-body mt-4"></div>
-					<table class="table table-borderless datatable">
-						<thead>
-							<tr>
-								<th class="col-2 text-center">UID</th>
-								<th class="col-1 text-center">LV</th>
-								<td class="col-1 text-center">Số nv</td>
-								<td class="col-1 text-center">Số vũ khí</td>
-								<td class="col-1 text-center">Server</td>
-								<td class="col-1 text-center">Phân loại</td>
-								<td class="col-2 text-center">HoyolabID</td>
-								<td class="col-1 text-center">Giá</td>
-								<th class="col-2 text-center">Chức năng</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach (var item in Model)
-							{
-								<tr>
-									<td class="text-center">@item.UID</td>
-									<td class="text-center">@item.LV</td>
-									<td class="text-center">@item.CharCount</td>
-									<td class="text-center">@item.Weapon</td>
-									<td class="text-center">@item.Server</td>
-									<td class="text-center">@item.Type</td>
-									<td class="text-center">@item.HoyolabID</td>
-									<td class="text-center">@item.Price</td>
-									<td class="text-center">
-										<a asp-area="Admin" asp-controller="AccGI" asp-action="Edit" asp-route-id="@item.UID" class="btn btn-primary btn-sm" title="Sửa thông tin tài khoản bán">
-											<i class="bi bi-pencil"></i>
-										</a>
-										<a asp-area="Admin" asp-controller="AccGI" asp-action="Delete" asp-route-id="@item.UID" class="btn btn-danger btn-sm" title="Xoá tài khoản bán">
-											<i class="bi bi-trash"></i>
-										</a>
-									</td>
-								</tr>
-							}
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</section>
+    <section class="section dashboard">
+        <div class="row">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                    <div class="card-body mt-4">
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th class="col-2 text-center">UID</th>
+                                    <th class="col-1 text-center">LV</th>
+                                    <th class="col-1 text-center">Số nv</th>
+                                    <th class="col-1 text-center">Số vũ khí</th>
+                                    <th class="col-1 text-center">Server</th>
+                                    <th class="col-1 text-center">Phân loại</th>
+                                    <th class="col-2 text-center">HoyolabID</th>
+                                    <th class="col-1 text-center">Giá</th>
+                                    <th class="col-2 text-center">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th class="text-center">@item.UID</th>
+                                        <th class="text-center">@item.LV</th>
+                                        <th class="text-center">@item.CharCount</th>
+                                        <th class="text-center">@item.Weapon</th>
+                                        <th class="text-center">@item.Server</th>
+                                        <th class="text-center">@item.Type</th>
+                                        <th class="text-center">@item.HoyolabID</th>
+                                        <th class="text-center">@item.Price</th>
+                                        <th class="text-center">
+                                            <a asp-area="Admin" asp-controller="AccGI" asp-action="Edit" asp-route-id="@item.UID" class="btn btn-primary btn-sm" title="Sửa thông tin tài khoản bán">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="AccGI" asp-action="Delete" asp-route-id="@item.UID" class="btn btn-danger btn-sm" title="Xoá tài khoản bán">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </th>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>

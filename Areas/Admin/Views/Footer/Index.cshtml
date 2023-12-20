@@ -19,50 +19,50 @@
         <div class="row">
             <div class="col-12">
                 <div class="card recent-sales overflow-auto">
-                    <div class="card-body mt-4"></div>
-                    <table class="table table-borderless datatable">
-                        <thead>
-                            <tr>
-                                <th class="col-1 text-center">#</th>
-                                <th class="col-3 text-center">Tiêu đề</th>
-                                <td class="col-1 text-center">Cột</td>
-                                <td class="col-1 text-center">Footer cha</td>
-                                <td class="col-1 text-center">Thứ tự</td>
-                                <td class="col-1 text-center">Ẩn/Hiện</td>
-                                <td class="col-1 text-center">Icon</td>
-                                <td class="col-1 text-center">TextLink</td>
-                                <td class="col-1 text-center">Link</td>
-                                <th class="col-2 text-center">Chức năng</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
+                    <div class="card-body mt-4">
+                        <table class="table table-borderless datatable">
+                            <thead>
                                 <tr>
-                                    <td class="text-center">@item.FooterId</td>
-                                    <td class="text-primary">@item.ItemText</td>
-                                    <td class="text-center">@item.Column</td>
-                                    <td class="text-center">@item.ParentID</td>
-                                    <td class="text-center">@item.ItemOrder</td>
-                                    <td class="text-center">@item.IsActive</td>
-                                    <td class="text-center">@item.Icon</td>
-                                    <td class="text-center">@item.TextLink</td>
-                                    <td class="text-center">@item.Link</td>
-
-                                    <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="Footer" asp-action="Edit" asp-route-id="@item.FooterId" class="btn btn-primary btn-sm" title="Sửa">
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
-                                        <a asp-area="Admin" asp-controller="Footer" asp-action="Delete" asp-route-id="@item.FooterId" class="btn btn-danger btn-sm" title="Xoá">
-                                            <i class="bi bi-trash"></i>
-                                        </a>
-                                    </td>
+                                    <th class="col-1 text-center">#</th>
+                                    <th class="col-3 text-center">Tiêu đề</th>
+                                    <th class="col-1 text-center">Cột</th>
+                                    <th class="col-1 text-center">Footer cha</th>
+                                    <th class="col-1 text-center">Thứ tự</th>
+                                    <th class="col-1 text-center">Ẩn/Hiện</th>
+                                    <th class="col-1 text-center">Icon</th>
+                                    <th class="col-1 text-center">TextLink</th>
+                                    <th class="col-1 text-center">Link</th>
+                                    <th class="col-2 text-center">Chức năng</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
 
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th class="text-center">@item.FooterId</th>
+                                        <th class="text-primary">@item.ItemText</th>
+                                        <th class="text-center">@item.Column</th>
+                                        <th class="text-center">@item.ParentID</th>
+                                        <th class="text-center">@item.ItemOrder</th>
+                                        <th class="text-center">@item.IsActive</th>
+                                        <th class="text-center">@item.Icon</th>
+                                        <th class="text-center">@item.TextLink</th>
+                                        <th class="text-center">@item.Link</th>
+
+                                        <th class="text-center">
+                                            <a asp-area="Admin" asp-controller="Footer" asp-action="Edit" asp-route-id="@item.FooterId" class="btn btn-primary btn-sm" title="Sửa">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="Footer" asp-action="Delete" asp-route-id="@item.FooterId" class="btn btn-danger btn-sm" title="Xoá">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </th>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>

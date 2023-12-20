@@ -4,6 +4,7 @@ using DoAn_WebAcc.Utilities;
 using Microsoft.AspNetCore.Hosting.Server;
 using System;
 using Microsoft.AspNetCore.Mvc.Routing;
+using System.Security.Cryptography;
 
 namespace DoAn_WebAcc.Controllers
 {
@@ -40,6 +41,7 @@ namespace DoAn_WebAcc.Controllers
         }
         [Route("/Login")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(User user)
         {
             this.returnUrl = Request.Form["returnUrl"];
@@ -133,6 +135,7 @@ namespace DoAn_WebAcc.Controllers
         }
         [Route("/ForgotPass")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult ForgotPass(User user)
         {
             if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Email))
@@ -142,13 +145,46 @@ namespace DoAn_WebAcc.Controllers
             var check = _dataContext.Users.Where(m => (m.Username == user.Username) && (m.Email == user.Email)).FirstOrDefault();
             if (check == null)
             {
-                Functions._Message = "Tên đăng nhập hoặc mật khẩu không chính xác";
+                Functions._Message = "Thông tin không khớp";
                 return View();
             }
             else
             {
                 //reset pass
             }
+            Functions._Message = "Thành Công, vui lòng kiểm tra hòm thư điện tử!!!";
+            return View();
+        }
+        [Route("/ChangePass")]
+        [HttpGet]
+        public IActionResult ChangePass()
+        {
+            if (!Functions.IsLogin())
+                return Redirect("/Login");
+            return View();
+        }
+        [Route("/ChangePass")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePass(User user, [FromForm] string oldpass, [FromForm] string newpass)
+        {
+            if (user.UserId == null || string.IsNullOrEmpty(oldpass) || string.IsNullOrEmpty(newpass) )
+            {
+                return NotFound();
+            }
+            var check = _dataContext.Users.Where(m => (m.UserId == user.UserId) && (m.Password == Functions.MD5Password(oldpass))).FirstOrDefault();
+            if (check == null)
+            {
+                Functions._Message = "Mật khẩu cũ không chính xác";
+                return View();
+            }
+            else
+            {
+                check.Password = Functions.MD5Password(newpass);
+                _dataContext.Update(check);
+                _dataContext.SaveChanges();
+            }
+
             Functions._Message = "Thành Công!!!";
             return View();
         }
