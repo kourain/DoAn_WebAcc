@@ -67,16 +67,6 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Footer mn)
         {
-            //lấy max footerid có sẵn trong bảng csdl
-            //int Footerid = 0;
-            //try
-            //{
-            //    Footerid = (from p in _Context.Footers
-            //              orderby p.FooterId descending
-            //              select p.FooterId).Take(1).ToList()[0];
-            //}
-            //catch { Footerid = 0; };
-            //mn.FooterId = Footerid + 1;
             if (ModelState.IsValid)
             {
                 _Context.Footers.Add(mn);

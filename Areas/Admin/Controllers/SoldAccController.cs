@@ -29,30 +29,5 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             var mnlist = _Context.AccHSRs.Where(m => m.Sold != null && m.Sold != 0).OrderBy(m => m.SoldDate).ToList();
             return View(mnlist);
         }
-        public IActionResult Delete(int? id)
-		{
-			if (id == null || id == 0)
-			{
-				return NotFound();
-			}
-			var mn = _Context.AccHIs.Find(id);
-			if (mn == null)
-			{
-				return NotFound();
-			}
-			return View(mn);
-		}
-		[HttpPost]
-		public IActionResult Delete(int id)
-		{
-			var deleAccHI = _Context.AccHIs.Find(id);
-			if (deleAccHI == null)
-			{
-				return NotFound();
-			}
-			_Context.AccHIs.Remove(deleAccHI);
-			_Context.SaveChanges();
-			return RedirectToAction("Index");
-		}
 	}
 }

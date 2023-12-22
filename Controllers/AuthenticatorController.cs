@@ -166,13 +166,9 @@ namespace DoAn_WebAcc.Controllers
         [Route("/ChangePass")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangePass(User user, [FromForm] string oldpass, [FromForm] string newpass)
+        public ActionResult ChangePass(ChangePass cp)
         {
-            if (user.UserId == null || string.IsNullOrEmpty(oldpass) || string.IsNullOrEmpty(newpass) )
-            {
-                return NotFound();
-            }
-            var check = _dataContext.Users.Where(m => (m.UserId == user.UserId) && (m.Password == Functions.MD5Password(oldpass))).FirstOrDefault();
+            var check = _dataContext.Users.Where(m => (m.UserId == Functions._UserID) && (m.Password == Functions.MD5Password(cp.oldPass))).FirstOrDefault();
             if (check == null)
             {
                 Functions._Message = "Mật khẩu cũ không chính xác";
@@ -180,11 +176,10 @@ namespace DoAn_WebAcc.Controllers
             }
             else
             {
-                check.Password = Functions.MD5Password(newpass);
+                check.Password = Functions.MD5Password(cp.newPass);
                 _dataContext.Update(check);
                 _dataContext.SaveChanges();
             }
-
             Functions._Message = "Thành Công!!!";
             return View();
         }

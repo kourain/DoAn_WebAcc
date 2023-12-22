@@ -16,8 +16,8 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         [Route("/Admin/Logout")]
         public IActionResult Logout()
         {
-            Functions._UserID = 0;
-            Functions._UserName = string.Empty;
+            Functions._AdminUserID = 0;
+            Functions._AdminUserName = string.Empty;
             Functions._Email = string.Empty;
             Functions._Message = string.Empty;
             return RedirectToAction("Index", "Home");
@@ -27,6 +27,12 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         {
             if (Functions.IsLogin())
                 return Redirect("/Admin");
+            Functions._Message = "";
+            return View();
+        }
+        [Route("/Admin/UserProfile")]
+        public IActionResult UserProfile()
+        {
             Functions._Message = "";
             return View();
         }
@@ -49,8 +55,8 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             }
 
             Functions._Message = string.Empty;
-            Functions._UserID = check.AdminUserID;
-            Functions._UserName = string.IsNullOrEmpty(check.UserName) ? string.Empty : check.UserName;
+            Functions._AdminUserID = check.AdminUserID;
+            Functions._AdminUserName = string.IsNullOrEmpty(check.UserName) ? string.Empty : check.UserName;
             Functions._Email = string.IsNullOrEmpty(check.Email) ? string.Empty : check.Email;
 
             return RedirectToAction("Index" , "Home");
@@ -82,18 +88,29 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
 
             Functions._Message = string.Empty;
             user.Password = Functions.MD5Password(user.Password);
-            //int usid = 0;
-            //try
-            //{
-            //   usid =  (from p in _dataContext.AdminUsers
-            //     orderby p.UserID descending
-            //     select p.UserID).Take(1).ToList()[0];
-            //}
-            //catch  { usid = 0; };
-            //user.UserID = usid + 1;
             _dataContext.Add(user);
             _dataContext.SaveChanges();
             return RedirectToAction("Index", "Login");
+        }
+        [Route("/Admin/AdminChangePass")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AdminChangePass(ChangePass cp)
+        {
+            var check = _dataContext.AdminUsers.Where(m => (m.AdminUserID == Functions._AdminUserID) && (m.Password == Functions.MD5Password(cp.oldPass))).FirstOrDefault();
+            if (check == null)
+            {
+                Functions._Message = "Mật khẩu cũ không chính xác";
+                return View();
+            }
+            else
+            {
+                check.Password = Functions.MD5Password(cp.newPass);
+                _dataContext.Update(check);
+                _dataContext.SaveChanges();
+            }
+            Functions._Message = "Thành Công!!!";
+            return View();
         }
     }
 }

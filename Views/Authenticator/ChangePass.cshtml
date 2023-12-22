@@ -1,5 +1,5 @@
 ﻿@using DoAn_WebAcc.Utilities;
-@model DoAn_WebAcc.Models.User;
+@model DoAn_WebAcc.Models.ChangePass;
 @{
     string returnUrl = Context.Request.Query["returnUrl"];
     if (string.IsNullOrEmpty(returnUrl))
@@ -20,13 +20,12 @@
                     <div class="card-body">
 
                         <form method="POST" asp-action="ChangePass">
-                            <input id="oldpass" type="text" class="form-control " asp-for="UserId" value="" required autofocus="">
                             <div class="form-group row">
                                 <label for="oldpass" class="col-md-4 col-form-label text-md-right">
                                     Mật khẩu cũ
                                 </label>
                                 <div class="col-md-6">
-                                    <input id="oldpass" type="text" class="form-control " for="oldpass" value="" required autofocus="">
+                                    <input id="oldpass" type="password" class="form-control" asp-for="oldPass" value="" required autofocus="">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -34,7 +33,7 @@
                                     Mật khẩu mới
                                 </label>
                                 <div class="col-md-6">
-                                    <input id="newpass" type="email" class="form-control " for="newpass" value="" required autofocus="">
+                                    <input id="newpass" type="password" class="form-control" asp-for="newPass" value="" required autofocus="">
                                 </div>
                             </div>
                             <div class="col-12 text-center text-danger">

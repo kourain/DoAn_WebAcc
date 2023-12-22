@@ -42,17 +42,11 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            deleUser.Ban = true;
+            deleUser.Ban = !deleUser.Ban;
             _Context.Users.Update(deleUser);
             _Context.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        public IActionResult ResetPassWord()
-        {
-            return View();
-        }
-
         public IActionResult ResetPassWord(int? id)
         {
             if (id == null || id == 0)
@@ -70,13 +64,15 @@ namespace DoAn_WebAcc.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ResetPassWord(User mn)
         {
-            if (ModelState.IsValid)
+            var resetUser = _Context.Users.Find(mn.UserId);
+            if (resetUser == null)
             {
-                _Context.Users.Update(mn);
-                _Context.SaveChanges();
-                return RedirectToAction("Index");
+                return NotFound();
             }
-            return View();
+            resetUser.Password = Functions.MD5Password("12345678");
+            _Context.Users.Update(resetUser);
+            _Context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
