@@ -1,7 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using Newtonsoft.Json.Linq;
+@{
+    var jsondata = JObject.Parse(File.ReadAllText("HomePage.json"));
 }
-
 <center>
     <img src="https://uploadstatic-sea.mihoyo.com/contentweb/20200319/2020031919242255224.png" class="city__icon">
 </center>
@@ -11,7 +11,7 @@
         <div id="miu-carousel" class="col-12 col-lg-videobanner carousel slide p-0" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active d-none d-lg-block">
-                <iframe width="100%" height="540" src="https://www.youtube.com/embed/mvrW4aKwAXw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                    <iframe width="100%" height="540" src="@jsondata["VideoHome"]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                 </div>
             </div>
         </div>
