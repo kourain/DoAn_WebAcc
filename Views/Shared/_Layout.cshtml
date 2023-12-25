@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Newtonsoft.Json.Linq;
+@{
+    var jsondata = JObject.Parse(File.ReadAllText("HomePage.json"));
+}
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,7 +12,7 @@
     <base>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/style/plugins/fontawesome-free/css/all.min.css">
-    <link rel="icon" type="image/png" href="../upanh.cf/30c1d3vknx.jpg">
+    <link rel="icon" type="image/png" href="@jsondata["IconWeb"]">
     <link rel="stylesheet" href="~/HoyoGames.css" />
 
 
@@ -90,7 +94,9 @@
     </style>
 
 </head>
-<body class="hold-transition sidebar-collapse layout-top-nav">
+<body class="hold-transition sidebar-collapse layout-top-nav" style="
+    background: #fff url(@jsondata["BackgroundImage"]) no-repeat fixed;
+    background-size: cover;">
     <div class="wrapper">
         @await Component.InvokeAsync("MenuView")
         <main>

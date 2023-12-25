@@ -102,10 +102,6 @@ button.accept-policy {
     box-shadow: 0 0 15px rgb(0 0 0 / 16%);
 }
 
-body {
-    background: #fff url(style/genshi/img/background/light-bg-genshin.png) no-repeat fixed;
-    background-size: cover;
-}
 
 a:hover {
     text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff;
