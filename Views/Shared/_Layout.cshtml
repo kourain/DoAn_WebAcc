@@ -1,6 +1,6 @@
 ﻿@using Newtonsoft.Json.Linq;
 @{
-    var jsondata = JObject.Parse(File.ReadAllText("HomePage.json"));
+    var jsondata = JObject.Parse(File.ReadAllText("HoyoGamesShop.json"));
 }
 <!DOCTYPE html>
 <html lang="vi">
@@ -12,7 +12,7 @@
     <base>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/style/plugins/fontawesome-free/css/all.min.css">
-    <link rel="icon" type="image/png" href="@jsondata["IconWeb"]">
+    <link rel="icon" type="image/png" href="@jsondata["Logo"]">
     <link rel="stylesheet" href="~/HoyoGames.css" />
 
 
