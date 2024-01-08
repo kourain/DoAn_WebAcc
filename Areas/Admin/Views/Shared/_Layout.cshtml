@@ -1,7 +1,11 @@
 ﻿@using DoAn_WebAcc.Areas.Admin.Utilities;
 @using Newtonsoft.Json.Linq;
 @{
+<<<<<<< HEAD
     var jsondata = JObject.Parse(File.ReadAllText("HomePage.json"));
+=======
+    var jsondata = JObject.Parse(File.ReadAllText("HoyoGamesShop.json"));
+>>>>>>> 8a2ea50de47a611532b7daa66afe0a3f7ab29fcf
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +19,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>HoyoGames Shop Admin</title>
+<<<<<<< HEAD
     <link rel="icon" type="image/png" href="@jsondata["IconWeb"]">
+=======
+    <link rel="icon" type="image/png" href="@jsondata["Logo"]">
+>>>>>>> 8a2ea50de47a611532b7daa66afe0a3f7ab29fcf
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -50,7 +58,11 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="\Admin\Home" class="logo d-flex align-items-center">
+<<<<<<< HEAD
                 <img src="@jsondata["IconWeb"]" alt="">
+=======
+                <img src="@jsondata["Logo"]" alt="">
+>>>>>>> 8a2ea50de47a611532b7daa66afe0a3f7ab29fcf
                 <span style="font-size: x-large;font-family: cursive;">
                     HoyoGames Shop Admin
                 </span>
@@ -220,7 +232,11 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+<<<<<<< HEAD
                         <img src="@jsondata["IconWeb"]" alt="Profile" class="rounded-circle">
+=======
+                        <img src="@jsondata["Logo"]" alt="Profile" class="rounded-circle">
+>>>>>>> 8a2ea50de47a611532b7daa66afe0a3f7ab29fcf
                         <span class="d-none d-md-block dropdown-toggle ps-2">@Functions._AdminUserName</span>
                     </a><!-- End Profile Iamge Icon -->
 

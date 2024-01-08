@@ -16,7 +16,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="/Home" class="nav-link menu-header shine-active" style="font-size: x-large;font-family: cursive;">HoyoGames Shop</a>
+                    <a href="/" class="nav-link menu-header shine-active" style="font-size: x-large;font-family: cursive;">HoyoGames Shop</a>
                 </li>
                 @foreach (var menu in Model.Where(m => m.ParentID == 0).OrderBy(n => n.MenuOrder))
                 {
@@ -91,7 +91,7 @@
             <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto" style="position: absolute;right: 20px;">
                 <li class="nav-item">
                     <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-block btn-outline-warning font-weight-bold" style="background: rgb(89 84 173 / 25%);">
-                        <span class="text-light">[@Functions._UserID] @Functions._UserName</span>
+                        <span class="text-light">[@Functions._UserID] @Functions._Name (@Functions._UserName)</span>
                     </span>
                     <ul class="dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
                         <li>

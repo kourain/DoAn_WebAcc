@@ -1,7 +1,6 @@
 ﻿@using DoAn_WebAcc.Areas.Admin.Models;
 @model IList<AdminMenu>
 <aside id="sidebar" class="sidebar">
-
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
@@ -47,11 +46,18 @@
         <li class="nav-heading">Nhiều hơn</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/Admin/Home/Logout">
+            <a class="nav-link collapsed" href="/">
+                <i class="bi-house-fill"></i>
+                <span>Tới trang web</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/Admin/Logout">
                 <i class="bi bi-dash-circle"></i>
                 <span>Lougout</span>
             </a>
-        </li><!-- End Error 404 Page Nav -->
+        </li>
+        <!-- End Error 404 Page Nav -->
 
     </ul>
 
