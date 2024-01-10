@@ -1,5 +1,5 @@
 {
-  "Logo": "/HoyoGamesShop.png",
+  "Logo": "https://raw.githubusercontent.com/kourain/DoAn_WebAcc/master/wwwroot/HoyoGamesShop.png",
   "VideoHome": "https://www.youtube.com/embed/mvrW4aKwAXw", //embed video from youtube
   "BackgroundImage": "/style/genshi/img/background/light-bg-genshin.png"
 }
